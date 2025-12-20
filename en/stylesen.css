@@ -2355,6 +2355,49 @@ body {
 
 /* =================== RESPONSIVE STYLES =================== */
 
+
+
+
+/* =================== 100px-340px LIKE 472px =================== */
+@media (min-width: 100px) and (max-width: 340px) {
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .portfolio-title {
+    font-size: 70px;
+  }
+  
+  .name-title {
+    font-size: 30px;
+  }
+  
+  h2 {
+    font-size: 42px;
+  }
+  
+  .about-info-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .info-card {
+    max-width: calc(50% - 15px);
+  }
+}
+   
+
+
+
+
 /* =================== MOBILE SMALL =================== */
 @media (min-width: 300px) and (max-width: 319px) {
   /* Navbar */
