@@ -3404,13 +3404,13 @@ body {
     font-weight: bold;
     margin-bottom: 4px;
   }
-}
+} 
 
 /* =================== COMPREHENSIVE MOBILE & IPHONE FIXES =================== */
 /* Fix arrows to center on images, ensure photos visible, fonts fit, buttons visible */
 
 @media (min-width: 100px) and (max-width: 768px) {
-  /* Ensure all images are visible */
+  /* Contact card images only */
   .contact-card img {
     object-fit: contain;
     max-width: 100%;
@@ -3467,6 +3467,19 @@ body {
   
   .mobile-lang-buttons {
     display: flex !important;
+  }
+  
+  /* Keep work images as cover on mobile */
+  .work-card img {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: calc(100% - 80px) !important;
+  }
+  
+  /* Force services background on mobile */
+  .services-page {
+    background: url('../images/mojeusluge.jpg') center/cover no-repeat !important;
+    background-attachment: scroll !important;
   }
 }
 
