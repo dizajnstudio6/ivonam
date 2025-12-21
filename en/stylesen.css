@@ -1,4 +1,4 @@
-* {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -479,58 +479,38 @@ body {
   color: #000;
 }
 
-.trivia-nav-btn {
-  position: absolute;
-  top: calc(50% + 210px);
-  transform: translateY(-50%);
-  background: transparent;
-  border: 2px solid #000;
-  color: #000;
-  width: 60px;
-  height: 60px;
-  font-size: 36px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-}
-
-.trivia-nav-btn:hover {
-  background: transparent;
-  color: #000;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.trivia-nav-btn:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
-.trivia-prev {
-  left: 30px;
-}
-
-.trivia-next {
-  right: 30px;
+.trivia-slider-wrapper {
+  position: relative;
 }
 
 @media (max-width: 768px) {
-  .trivia-nav-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 28px;
+  .strip-img {
+    height: auto;
+    min-height: 420px;
   }
   
-  .trivia-prev {
-    left: 10px;
+  .img-text {
+    justify-content: flex-start;
+    padding: 20px;
+    overflow-y: auto;
   }
   
-  .trivia-next {
-    right: 10px;
+  .img-text p {
+    font-size: 14px;
+    line-height: 1.5;
   }
+}
+
+.trivia-slider-wrapper {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.trivia-slider-wrapper:active {
+  cursor: grabbing;
 }
 
 .trivia-slider-wrapper {
@@ -541,6 +521,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-height: 420px;
+}
+
+.trivia-nav-btn {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .strip-track {
@@ -995,20 +981,20 @@ body {
   overflow: hidden;
   border-radius: 10px;
   cursor: pointer;
-  background: url('../images/ja.jpg') center/cover no-repeat;
+  background: url('images/ja.jpg') center/cover no-repeat;
   border: 2px solid #d3d3d3;
 }
 
 .info-card:nth-child(2) {
-  background: url('../images/office.jpg') center/cover no-repeat;
+  background: url('images/office.jpg') center/cover no-repeat;
 }
 
 .info-card:nth-child(3) {
-  background: url('../images/cilj3.png') center/cover no-repeat;
+  background: url('images/cilj3.png') center/cover no-repeat;
 }
 
 .info-card:nth-child(4) {
-  background: url('../images/obrazovanje.jpg') center/cover no-repeat;
+  background: url('images/obrazovanje.jpg') center/cover no-repeat;
 }
 
 .info-card::before {
@@ -1449,7 +1435,7 @@ body {
 
 /* ================= FOOTER ================= */
 .footer {
-  background: url('../images/foot1.jpg') center/cover no-repeat;
+  background: url('images/foot1.jpg') center/cover no-repeat;
   color: #fff;
   padding: 60px 8% 20px;
   font-family: Arial, sans-serif;
@@ -2183,7 +2169,7 @@ body {
   transition: width 0.3s ease;
 }
 
-.navbar .nav-links a:hover { 
+.navbar .nav-links a:hover {
   color: #000;
   transform: translateY(-2px);
 }
@@ -2232,7 +2218,7 @@ body {
   .navbar .nav-links {
     gap: 20px;
   }
-} 
+}
 
 
 .lang-toggle.active {
@@ -2245,21 +2231,22 @@ body {
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
   z-index: 1000;
   margin-left: auto;
+  position: relative;
 }
 
 .hamburger-menu-toggle span {
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: #000;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: all 0.3s ease;
 }
 
@@ -2355,9 +2342,6 @@ body {
 
 /* =================== RESPONSIVE STYLES =================== */
 
-
-
-
 /* =================== 100px-340px LIKE 472px =================== */
 @media (min-width: 100px) and (max-width: 340px) {
   .hamburger-menu-toggle {
@@ -2392,11 +2376,38 @@ body {
   .info-card {
     max-width: calc(50% - 15px);
   }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
 }
-   
 
+/* =================== MOJE USLUGE 100px-300px LIKE 583px =================== */
+@media (min-width: 100px) and (max-width: 300px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-
+/* =================== TRIVIA ARROWS 100px-400px CENTERED =================== */
+@media (min-width: 100px) and (max-width: 400px) {
+  .trivia-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+  }
+  
+  .trivia-nav-btn.trivia-prev {
+    left: 10px;
+    right: auto;
+  }
+  
+  .trivia-nav-btn.trivia-next {
+    right: 10px;
+    left: auto;
+  }
+}
 
 /* =================== MOBILE SMALL =================== */
 @media (min-width: 300px) and (max-width: 319px) {
@@ -2452,6 +2463,10 @@ body {
   
   .info-card {
     max-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
   }
   
   /* Trivia */
@@ -2479,11 +2494,28 @@ body {
     padding: 20px;
   }
   
-  .trivia-nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    top: 50%;
+  
+  .strip-img {
+    height: 300px;
+  }
+  
+  .work-card img,
+  .contact-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .service-card p,
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .hamburger-menu-toggle {
+    width: 24px;
+    height: 24px;
+    z-index: 1001;
   }
   
   /* Works */
@@ -2572,6 +2604,10 @@ body {
     display: flex;
   }
   
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
   .portfolio-title {
     font-size: 42px;
   }
@@ -2587,9 +2623,17 @@ body {
     padding: 15px 12px;
   }
   
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
   .navbar .nav-links {
-    gap: 10px;
-    font-size: 13px;
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
   }
   
   .portfolio-title {
@@ -2633,6 +2677,10 @@ body {
   }
   
   .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
     display: flex;
   }
   
@@ -2704,6 +2752,10 @@ body {
     display: flex;
   }
   
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
   .first-hero {
     min-height: 100vh;
   }
@@ -2724,6 +2776,10 @@ body {
     display: flex;
   }
   
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
   .first-hero {
     min-height: 100vh;
   }
@@ -2741,6 +2797,10 @@ body {
   }
   
   .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
     display: flex;
   }
   
@@ -2814,6 +2874,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 280px;
   }
 }
 
@@ -2855,6 +2919,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
   }
   
   .works-page .work-grid {
@@ -2913,6 +2981,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 320px;
   }
   
   .works-page .work-grid {
@@ -2974,6 +3046,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 340px;
   }
   
   .works-page .work-grid {
@@ -3091,6 +3167,11 @@ body {
   }
 }
 
+/* =================== LARGE DESKTOP =================== */
+@media (min-width: 1200px) {
+  /* Full desktop styles - already defined in main CSS */
+}
+
 /* =================== ARROWS POSITIONING 30px-2000px =================== */
 @media (min-width: 30px) and (max-width: 2000px) {
   .trivia-prev {
@@ -3104,10 +3185,6 @@ body {
 
 /* =================== ARROWS 300px-670px LIKE 818px =================== */
 @media (min-width: 300px) and (max-width: 670px) {
-  .trivia-nav-btn {
-    top: calc(50% + 210px);
-  }
-  
   .trivia-prev {
     left: 30px;
   }
@@ -3120,7 +3197,7 @@ body {
 /* =================== HOME PAGE BACKGROUND 299px-780px =================== */
 @media (min-width: 299px) and (max-width: 780px) {
   .first-hero {
-    background-image: url('../images/engleskifonpozadina.jpeg');
+    background-image: url('images/srpskifonpozadina.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -3129,11 +3206,6 @@ body {
   .first-hero .hero-background-video {
     display: none;
   }
-}
-
-/* =================== LARGE DESKTOP =================== */
-@media (min-width: 1200px) {
-  /* Full desktop styles - already defined in main CSS */
 }
 
 /* =================== MOJE USLUGE LIKE 486px (350px-484px) =================== */
@@ -3206,9 +3278,103 @@ body {
     text-align: left;
   }
   
-  .works-page .work-info p:first-child {
+  .works-page .work-info p:first-child { 
     font-weight: bold;
     margin-bottom: 4px;
   }
 }
- 
+
+/* =================== COMPREHENSIVE MOBILE & IPHONE FIXES =================== */
+/* Fix arrows to center on images, ensure photos visible, fonts fit, buttons visible */
+
+@media (min-width: 100px) and (max-width: 1000px) {
+  /* Ensure all images are visible */
+  .work-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .contact-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .info-card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
+    height: auto;
+  }
+  
+  /* Make fonts smaller to fit in containers */
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  
+  .contact-card-text p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  /* Ensure hamburger button is visible */
+  .hamburger-menu-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    z-index: 1001 !important;
+    position: relative !important;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex !important;
+  }
+}
+
+/* iPhone specific fixes */
+@media (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2),
+       (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2),
+       (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3),
+       (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+       (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+       (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+  
+  .work-card img,
+  .contact-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .info-card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
+  }
+  
+  .strip-img {
+    height: 300px;
+  }
+  
+  .service-card p {
+    font-size: 12px;
+  }
+  
+  .hamburger-menu-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    z-index: 1001 !important;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex !important;
+  }
+}
