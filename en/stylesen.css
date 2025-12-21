@@ -342,6 +342,7 @@ body {
   transition: transform 0.6s ease, filter 0.6s ease; 
 }
 
+.contact-card:nth-child(1) img,
 .contact-card:nth-child(2) img {
   object-fit: contain;
   object-position: center;
@@ -2382,10 +2383,16 @@ body {
   }
 }
 
-/* =================== MOJE USLUGE 100px-300px LIKE 583px =================== */
+/* =================== MOJE USLUGE 100px-300px LIKE 300px-319px =================== */
 @media (min-width: 100px) and (max-width: 300px) {
   .services-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .service-card p {
+    font-size: 12px;
+    line-height: 1.4;
   }
 }
 
@@ -2518,6 +2525,22 @@ body {
     z-index: 1001;
   }
   
+  .mobile-menu-link {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 80px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
   /* Works */
   .works-page .work-grid {
     grid-template-columns: 1fr;
@@ -2547,6 +2570,22 @@ body {
   
   .contact-card {
     max-width: 100%;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .mobile-menu-link {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 80px;
   }
   
   /* Footer */
@@ -2663,6 +2702,22 @@ body {
   .studio-gallery {
     grid-template-columns: 1fr;
   }
+  
+  .mobile-menu-link {
+    font-size: 17px;
+    padding: 13px 16px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 85px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
 }
 
 /* =================== iPhone 6/7/8 =================== */
@@ -2686,6 +2741,22 @@ body {
   
   .portfolio-title {
     font-size: 55px;
+  }
+  
+  .mobile-menu-link {
+    font-size: 17px;
+    padding: 13px 16px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 85px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
   }
 }
 
@@ -2711,6 +2782,22 @@ body {
   h2 {
     font-size: 40px;
   }
+  
+  .mobile-menu-link {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 90px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
 }
 
 /* =================== iPhone 6/7/8 Plus =================== */
@@ -2735,6 +2822,22 @@ body {
   .name-title {
     font-size: 28px;
   }
+  
+  .mobile-menu-link {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 90px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
 }
 
 /* =================== iPhone X, XS, 11 Pro =================== */
@@ -2758,6 +2861,22 @@ body {
   
   .first-hero {
     min-height: 100vh;
+  }
+  
+  .mobile-menu-link {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 90px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
   }
 }
 
@@ -3353,6 +3472,13 @@ body {
     height: auto;
   }
   
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
   .info-card {
     background-size: cover;
     background-repeat: no-repeat;
@@ -3372,6 +3498,15 @@ body {
     width: 24px !important;
     height: 24px !important;
     z-index: 1001 !important;
+  }
+  
+  .mobile-menu-link {
+    font-size: 16px !important;
+    padding: 12px 15px !important;
+  }
+  
+  .mobile-menu-logo img {
+    height: 80px !important;
   }
   
   .mobile-lang-buttons {
