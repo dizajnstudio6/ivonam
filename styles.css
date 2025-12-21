@@ -1,6 +1,4 @@
-
-
-* {
+ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -344,6 +342,7 @@ body {
   transition: transform 0.6s ease, filter 0.6s ease; 
 }
 
+.contact-card:nth-child(1) img,
 .contact-card:nth-child(2) img {
   object-fit: contain;
   object-position: center;
@@ -481,58 +480,38 @@ body {
   color: #000;
 }
 
-.trivia-nav-btn {
-  position: absolute;
-  top: calc(50% + 210px);
-  transform: translateY(-50%);
-  background: transparent;
-  border: 2px solid #000;
-  color: #000;
-  width: 60px;
-  height: 60px;
-  font-size: 36px;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  border-radius: 50%;
-}
-
-.trivia-nav-btn:hover {
-  background: transparent;
-  color: #000;
-  transform: translateY(-50%) scale(1.1);
-}
-
-.trivia-nav-btn:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
-.trivia-prev {
-  left: 30px;
-}
-
-.trivia-next {
-  right: 30px;
+.trivia-slider-wrapper {
+  position: relative;
 }
 
 @media (max-width: 768px) {
-  .trivia-nav-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 28px;
+  .strip-img {
+    height: auto;
+    min-height: 420px;
   }
   
-  .trivia-prev {
-    left: 10px;
+  .img-text {
+    justify-content: flex-start;
+    padding: 20px;
+    overflow-y: auto;
   }
   
-  .trivia-next {
-    right: 10px;
+  .img-text p {
+    font-size: 14px;
+    line-height: 1.5;
   }
+}
+
+.trivia-slider-wrapper {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.trivia-slider-wrapper:active {
+  cursor: grabbing;
 }
 
 .trivia-slider-wrapper {
@@ -543,6 +522,30 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-height: 420px;
+}
+
+.trivia-nav-btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.trivia-nav-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .strip-track {
@@ -1242,7 +1245,7 @@ body {
 .services-page {
   padding: 90px 8% 140px;
   position: relative;
-  background: url('images/23.jpg') center/cover no-repeat;
+  background: url('images/mojeusluge.jpg') center/cover no-repeat !important;
   background-attachment: fixed;
 }
 
@@ -2247,21 +2250,22 @@ body {
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
   z-index: 1000;
   margin-left: auto;
+  position: relative;
 }
 
 .hamburger-menu-toggle span {
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: #000;
-  border-radius: 3px;
+  border-radius: 2px;
   transition: all 0.3s ease;
 }
 
@@ -2357,9 +2361,6 @@ body {
 
 /* =================== RESPONSIVE STYLES =================== */
 
-
-
-
 /* =================== 100px-340px LIKE 472px =================== */
 @media (min-width: 100px) and (max-width: 340px) {
   .hamburger-menu-toggle {
@@ -2394,9 +2395,200 @@ body {
   .info-card {
     max-width: calc(50% - 15px);
   }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
 }
 
+/* =================== 100px-330px CONTACT LOGO SMALLER =================== */
+@media (min-width: 100px) and (max-width: 330px) {
+  .contact-card:nth-child(2) img {
+    max-width: 60%;
+    max-height: 60%;
+    margin: auto;
+  }
+}
 
+/* =================== 330px-370px SERVICES LIKE 340px =================== */
+@media (min-width: 330px) and (max-width: 370px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =================== 350px-420px SERVICES LIKE 330px =================== */
+@media (min-width: 350px) and (max-width: 420px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =================== 402px LIKE 330px WITH HAMBURGER =================== */
+@media (min-width: 402px) and (max-width: 402px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 12px;
+  }
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .portfolio-title {
+    font-size: 50px;
+  }
+  
+  .name-title {
+    font-size: 22px;
+  }
+  
+  h2 {
+    font-size: 36px;
+  }
+  
+  .about-info-cards {
+    flex-direction: column;
+  }
+  
+  .works-page .work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .studio-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-menu-link {
+    font-size: 17px;
+    padding: 13px 16px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 85px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .service-card p,
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+/* =================== 0px-300px LIKE 321px-374px =================== */
+@media (min-width: 0px) and (max-width: 300px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 12px;
+  }
+  
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .portfolio-title {
+    font-size: 50px;
+  }
+  
+  .name-title {
+    font-size: 22px;
+  }
+  
+  h2 {
+    font-size: 36px;
+  }
+  
+  .about-info-cards {
+    flex-direction: column;
+  }
+  
+  .works-page .work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .studio-gallery {
+    grid-template-columns: 1fr;
+  }
+  
+  .mobile-menu-link {
+    font-size: 17px;
+    padding: 13px 16px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 85px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .service-card p,
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .services-page {
+    background: url('images/mojeusluge.jpg') center/cover no-repeat !important;
+    background-attachment: fixed;
+  }
+}
+
+/* =================== TRIVIA ARROWS 100px-400px CENTERED =================== */
+@media (min-width: 100px) and (max-width: 400px) {
+  .trivia-nav-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+  }
+  
+  .trivia-nav-btn.trivia-prev {
+    left: 10px;
+    right: auto;
+  }
+  
+  .trivia-nav-btn.trivia-next {
+    right: 10px;
+    left: auto;
+  }
+}
 
 /* =================== MOBILE SMALL =================== */
 @media (min-width: 300px) and (max-width: 319px) {
@@ -2452,6 +2644,10 @@ body {
   
   .info-card {
     max-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
   }
   
   /* Trivia */
@@ -2479,11 +2675,44 @@ body {
     padding: 20px;
   }
   
-  .trivia-nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    top: 50%;
+  
+  .strip-img {
+    height: 300px;
+  }
+  
+  .work-card img,
+  .contact-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .service-card p,
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  
+  .hamburger-menu-toggle {
+    width: 24px;
+    height: 24px;
+    z-index: 1001;
+  }
+  
+  .mobile-menu-link {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 80px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
   }
   
   /* Works */
@@ -2515,6 +2744,22 @@ body {
   
   .contact-card {
     max-width: 100%;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .mobile-menu-link {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 80px;
   }
   
   /* Footer */
@@ -2569,6 +2814,10 @@ body {
   }
   
   .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
     display: flex;
   }
   
@@ -2627,6 +2876,22 @@ body {
   .studio-gallery {
     grid-template-columns: 1fr;
   }
+  
+  .mobile-menu-link {
+    font-size: 17px;
+    padding: 13px 16px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 85px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
 }
 
 /* =================== iPhone 6/7/8 =================== */
@@ -2644,8 +2909,28 @@ body {
     display: flex;
   }
   
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
   .portfolio-title {
     font-size: 55px;
+  }
+  
+  .mobile-menu-link {
+    font-size: 17px;
+    padding: 13px 16px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 85px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
   }
 }
 
@@ -2671,6 +2956,22 @@ body {
   h2 {
     font-size: 40px;
   }
+  
+  .mobile-menu-link {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 90px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
 }
 
 /* =================== iPhone 6/7/8 Plus =================== */
@@ -2695,6 +2996,22 @@ body {
   .name-title {
     font-size: 28px;
   }
+  
+  .mobile-menu-link {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 90px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
 }
 
 /* =================== iPhone X, XS, 11 Pro =================== */
@@ -2712,8 +3029,28 @@ body {
     display: flex;
   }
   
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
   .first-hero {
     min-height: 100vh;
+  }
+  
+  .mobile-menu-link {
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+  
+  .mobile-menu-logo img {
+    height: 90px;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
   }
 }
 
@@ -2729,6 +3066,10 @@ body {
   }
   
   .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
     display: flex;
   }
   
@@ -2749,6 +3090,10 @@ body {
   }
   
   .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
     display: flex;
   }
   
@@ -2822,6 +3167,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 280px;
   }
 }
 
@@ -2863,6 +3212,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
   }
   
   .works-page .work-grid {
@@ -2921,6 +3274,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 320px;
   }
   
   .works-page .work-grid {
@@ -2982,6 +3339,10 @@ body {
   
   .info-card {
     max-width: calc(50% - 15px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 340px;
   }
   
   .works-page .work-grid {
@@ -3117,10 +3478,6 @@ body {
 
 /* =================== ARROWS 300px-670px LIKE 818px =================== */
 @media (min-width: 300px) and (max-width: 670px) {
-  .trivia-nav-btn {
-    top: calc(50% + 210px);
-  }
-  
   .trivia-prev {
     left: 30px;
   }
@@ -3214,8 +3571,119 @@ body {
     text-align: left;
   }
   
-  .works-page .work-info p:first-child {
+  .works-page .work-info p:first-child { 
     font-weight: bold;
     margin-bottom: 4px;
+  }
+}
+
+/* =================== COMPREHENSIVE MOBILE & IPHONE FIXES =================== */
+/* Fix arrows to center on images, ensure photos visible, fonts fit, buttons visible */
+
+@media (min-width: 100px) and (max-width: 1000px) {
+  /* Ensure all images are visible */
+  .work-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .contact-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .info-card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
+    height: auto;
+  }
+  
+  /* Make fonts smaller to fit in containers */
+  .service-card p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .work-info p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+  
+  .contact-card-text p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  /* Ensure hamburger button is visible */
+  .hamburger-menu-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    z-index: 1001 !important;
+    position: relative !important;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex !important;
+  }
+}
+
+/* iPhone specific fixes */
+@media (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2),
+       (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2),
+       (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3),
+       (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3),
+       (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2),
+       (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+  
+  .work-card img,
+  .contact-card img {
+    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .contact-card:nth-child(1) img {
+    object-fit: contain;
+    object-position: center;
+    background: #fff;
+    padding: 20px;
+  }
+  
+  .info-card {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
+  }
+  
+  .strip-img {
+    height: 300px;
+  }
+  
+  .service-card p {
+    font-size: 12px;
+  }
+  
+  .hamburger-menu-toggle {
+    width: 24px !important;
+    height: 24px !important;
+    z-index: 1001 !important;
+  }
+  
+  .mobile-menu-link {
+    font-size: 16px !important;
+    padding: 12px 15px !important;
+  }
+  
+  .mobile-menu-logo img {
+    height: 80px !important;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex !important;
   }
 }
