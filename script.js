@@ -1,31 +1,31 @@
-// LOADER
+// ================= LOADER =================
 window.addEventListener("load", () => {
   const loader = document.getElementById("loader");
-  loader.classList.add("fade-out");
-  setTimeout(() => {
-    loader.style.display = "none";
-  }, 500);
+  if (loader) {
+    loader.classList.add("fade-out");
+    setTimeout(() => {
+      loader.style.display = "none";
+    }, 500);
+  }
 });
 
-// VIDEO FALLBACK TEXT
+// ================= VIDEO FALLBACK =================
 window.addEventListener("load", () => {
   const video = document.querySelector(".hero-background-video");
   const fallback = document.getElementById("video-fallback");
-  
+
   if (video) {
     video.addEventListener("error", () => {
       video.style.display = "none";
       if (fallback) fallback.style.display = "block";
     });
-    
     video.addEventListener("loadeddata", () => {
       if (fallback) fallback.style.display = "none";
     });
-    
     video.addEventListener("canplay", () => {
       if (fallback) fallback.style.display = "none";
     });
-    
+
     if (video.readyState === 0) {
       setTimeout(() => {
         if (video.readyState === 0) {
@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
   }
 });
 
-// HERO SLIDER
+// ================= HERO SLIDER =================
 window.addEventListener("load", () => {
   const slides = document.querySelectorAll(".slide");
   if (!slides.length) return;
@@ -50,9 +50,7 @@ window.addEventListener("load", () => {
   }, 4000);
 });
 
-/* -------------------------------- */
-/* MOUSE IMAGE REVEAL EFFECT */
-/* -------------------------------- */
+// ================= MOUSE IMAGE REVEAL =================
 window.addEventListener("load", () => {
   const intro = document.querySelector(".intro-hover");
   if (!intro) return;
@@ -80,11 +78,7 @@ window.addEventListener("load", () => {
   });
 });
 
-
-
-/* -------------------------------- */
-/* ABOUT SLIDER */
-/* -------------------------------- */
+// ================= ABOUT SLIDER =================
 window.addEventListener("load", () => {
   const aboutSlider = document.querySelector(".about-slider");
   if (!aboutSlider) return;
@@ -95,7 +89,7 @@ window.addEventListener("load", () => {
   const prevBtn = document.querySelector(".slider-btn.prev");
   const nextBtn = document.querySelector(".slider-btn.next");
   const dotsContainer = document.querySelector(".slider-dots");
-  
+
   let currentSlide = 0;
 
   function updateSlider() {
@@ -137,71 +131,31 @@ window.addEventListener("load", () => {
   if (prevBtn) prevBtn.addEventListener("click", prevSlide);
 
   setInterval(nextSlide, 4000);
-}); 
+});
 
-/* -------------------------------- */
-/* TRIVIA SLIDER ARROWS */
-/* -------------------------------- */
+// ================= TRIVIA SLIDER (SAMO STRELE) =================
 window.addEventListener("load", () => {
-  const stripTrack = document.getElementById("triviaStripTrack");
-  const prevBtn = document.getElementById("triviaPrev");
-  const nextBtn = document.getElementById("triviaNext");
-  const wrapper = document.querySelector(".trivia-slider-wrapper");
-  
-  if (!stripTrack || !prevBtn || !nextBtn) return;
-  
-  const stripImgs = stripTrack.querySelectorAll(".strip-img");
-  if (!stripImgs.length) return;
-  
-  // Calculate slide width (image width + gap) 
-  const slideWidth = 260 + 50; // 260px image width + 50px gap
-  const totalWidth = (stripImgs.length * slideWidth) - 50; // Total width minus last gap
-  const leftPadding = 80;
-  
-  // Set wrapper width to fit exactly at the end of last image
-  if (wrapper) {
-    wrapper.style.width = `${totalWidth + leftPadding}px`;
-    wrapper.style.maxWidth = `${totalWidth + leftPadding}px`;
-  }
-  
-  let currentPosition = 0;
-  const maxPosition = 0;
-  const minPosition = -((stripImgs.length - 1) * slideWidth);
-  
-  function updatePosition() {
-    stripTrack.style.transform = `translateX(${currentPosition}px)`;
-  }
-  
-  function moveLeft() {
-    currentPosition += slideWidth;
-    if (currentPosition > maxPosition) {
-      currentPosition = minPosition;
-    }
-    updatePosition();
-  }
-  
-  function moveRight() {
-    currentPosition -= slideWidth;
-    if (currentPosition < minPosition) {
-      currentPosition = maxPosition;
-    }
-    updatePosition();
-  }
-  
-  prevBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    moveLeft();
+  const prevBtn = document.getElementById('triviaPrev');
+  const nextBtn = document.getElementById('triviaNext');
+  const track = document.getElementById('triviaStripTrack');
+
+  if (!prevBtn || !nextBtn || !track) return;
+
+  // Uzmi širinu prve slike + gap
+  const slide = track.querySelector('.strip-img');
+  const gap = 20;
+  const slideWidth = slide.offsetWidth + gap;
+
+  prevBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
   });
-  
-  nextBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    moveRight();
+
+  nextBtn.addEventListener('click', () => {
+    track.scrollBy({ left: slideWidth, behavior: 'smooth' });
   });
 });
 
-// Scroll to top function
+// ================= SCROLL TO TOP =================
 function scrollToTop() {
   window.scrollTo({
     top: 0,
@@ -209,7 +163,6 @@ function scrollToTop() {
   });
 }
 
-// Show/hide scroll to top button based on scroll position
 window.addEventListener('scroll', function() {
   const scrollTopBtn = document.getElementById('scrollTop');
   if (window.pageYOffset > 300) {
@@ -219,7 +172,7 @@ window.addEventListener('scroll', function() {
   }
 });
 
-// Hamburger menu toggle
+// ================= HAMBURGER MENU =================
 const hamburgerToggle = document.getElementById('hamburgerToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
@@ -230,7 +183,6 @@ if (hamburgerToggle && mobileMenu) {
     mobileMenu.classList.toggle('active');
   });
 
-  // Close menu when clicking on a link
   mobileMenuLinks.forEach(link => {
     link.addEventListener('click', function() {
       hamburgerToggle.classList.remove('active');
@@ -238,15 +190,12 @@ if (hamburgerToggle && mobileMenu) {
     });
   });
 
-  // Close menu when clicking outside
   document.addEventListener('click', function(event) {
     const isClickInsideMenu = mobileMenu.contains(event.target);
     const isClickOnToggle = hamburgerToggle.contains(event.target);
-    
     if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains('active')) {
       hamburgerToggle.classList.remove('active');
       mobileMenu.classList.remove('active');
     }
   });
 }
-
