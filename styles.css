@@ -2681,36 +2681,9 @@ body {
   }
 }
 
-/* =================== iPhone SE 1st gen =================== */
-@media (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
-  .navbar {
-    padding: 15px 10px;
-  }
-  
-  
-  .hamburger-menu-toggle {
-    display: flex;
-  }
-  
-  .navbar .nav-links {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .portfolio-title {
-    font-size: 42px;
-  }
-  
-  h2 {
-    font-size: 34px;
-  }
-}
 
 /* =================== MOBILE SMALL =================== */
-@media (min-width: 321px) and (max-width: 374px) {
+@media (min-width: 311px) and (max-width: 474px) {
   .navbar {
     padding: 15px 12px;
   }
@@ -2749,29 +2722,6 @@ body {
   }
 }
 
-/* =================== iPhone 6/7/8 =================== */
-@media (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
-  
-  .hamburger-menu-toggle {
-    display: flex;
-  }
-  
-  .navbar .nav-links {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .mobile-lang-buttons {
-    display: flex;
-  }
-  
-  .portfolio-title {
-    font-size: 55px;
-  }
-}
 
 /* =================== MOBILE MEDIUM =================== */
 @media (min-width: 376px) and (max-width: 399px) {
@@ -2797,105 +2747,6 @@ body {
   }
 }
 
-/* =================== iPhone 6/7/8 Plus =================== */
-@media (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
-  
-  .hamburger-menu-toggle {
-    display: flex;
-  }
-  
-  .navbar .nav-links {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .mobile-lang-buttons {
-    display: flex;
-  }
-  
-  .portfolio-title {
-    font-size: 65px;
-  }
-  
-  .name-title {
-    font-size: 28px;
-  }
-}
-
-/* =================== iPhone X, XS, 11 Pro =================== */
-@media (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-  
-  .hamburger-menu-toggle {
-    display: flex;
-  }
-  
-  .navbar .nav-links {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .mobile-lang-buttons {
-    display: flex;
-  }
-  
-  .first-hero {
-    min-height: 100vh;
-  }
-}
-
-/* =================== iPhone XR, 11 =================== */
-@media (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
-  
-  .hamburger-menu-toggle {
-    display: flex;
-  }
-  
-  .navbar .nav-links {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .mobile-lang-buttons {
-    display: flex;
-  }
-  
-  .first-hero {
-    min-height: 100vh;
-  }
-}
-
-/* =================== iPhone XS Max, 11 Pro Max =================== */
-@media (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
-  
-  .hamburger-menu-toggle {
-    display: flex;
-  }
-  
-  .navbar .nav-links {
-    display: none;
-  }
-  
-  .mobile-menu {
-    display: flex;
-  }
-  
-  .mobile-lang-buttons {
-    display: flex;
-  }
-  
-  .first-hero {
-    min-height: 100vh;
-  }
-}
 
 /* =================== 360px-415px LOOK LIKE 350px =================== */
 @media (min-width: 360px) and (max-width: 415px) {
