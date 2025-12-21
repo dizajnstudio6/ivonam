@@ -3409,14 +3409,8 @@ body {
 /* =================== COMPREHENSIVE MOBILE & IPHONE FIXES =================== */
 /* Fix arrows to center on images, ensure photos visible, fonts fit, buttons visible */
 
-@media (min-width: 100px) and (max-width: 1000px) {
+@media (min-width: 100px) and (max-width: 768px) {
   /* Ensure all images are visible */
-  .work-card img {
-    object-fit: contain;
-    max-width: 100%;
-    height: auto;
-  }
-  
   .contact-card img {
     object-fit: contain;
     max-width: 100%;
@@ -3531,9 +3525,7 @@ body {
   .mobile-lang-buttons {
     display: flex !important;
   }
-} 
-
-
+}
  
 /* =================== TRIVIA WRAPPER RESPONSIVE =================== */
 @media (min-width: 100px) and (max-width: 2000px) {
