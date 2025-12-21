@@ -3679,3 +3679,142 @@ body {
   .img-text p { font-size: 12px; }
 }
 
+
+/* iPhone 12 Pro / 12 (portrait) ~ 428px */
+@media (min-width: 418px) and (max-width: 471px) {
+  .container,
+  .works-container,
+  .services-container {
+    padding: 0 20px; /* primer, smanji padding */
+    width: 95%;       /* prilagodi širinu */
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+
+/* ==================== MOBILE FIX iPhone 12 / small devices ==================== */
+@media (max-width: 480px) {
+  /* Services / Moje usluge */
+  .services-grid {
+    grid-template-columns: 1fr !important; /* jedna po jedna kartica */
+    gap: 20px;
+  }
+
+  .service-card {
+    min-height: auto;  /* kartice se prilagode visini sadržaja */
+  }
+
+  /* Design Studio */
+  .studio-gallery {
+    grid-template-columns: 1fr !important; /* jedna po jedna slika */
+    gap: 20px;
+  }
+
+  .studio-item {
+    height: auto; /* visina se prilagodi sadržaju */
+  }
+} 
+
+/* =================== 410px-473px MOBILE CUSTOM =================== */
+@media (min-width: 410px) and (max-width: 473px) {
+  /* Services - jedno ispod drugog */
+  .services-grid {
+    grid-template-columns: 1fr !important; /* jedan po jedan */
+    gap: 20px; /* razmak između kartica */
+  }
+
+  .service-card {
+    width: 100%;       
+    max-width: 350px;  
+    min-height: 280px; /* osigurava da ceo tekst stane */
+    margin: 0 auto;    
+    padding: 25px 20px; /* malo više paddinga za tekst */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .service-card p {
+    font-size: 14px;   /* manji font da stane ceo tekst */
+    line-height: 1.6;  /* prored za lakše čitanje */
+  }
+
+  /* Studio gallery - jedno ispod drugog */
+  .studio-gallery {
+    grid-template-columns: 1fr !important; 
+    gap: 20px;
+  }
+
+  .studio-item {
+    width: 100%;
+    max-width: 350px;
+    height: auto;        /* automatska visina da se ne seče sadržaj */
+    min-height: 300px;   /* osnovna visina */
+    margin: 0 auto;
+  }
+
+  /* Hero & titles */
+  .portfolio-title {
+    font-size: 45px;
+    letter-spacing: 5px;
+  }
+
+  .name-title {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  /* Navbar i hamburger */
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+
+  .navbar .nav-links {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  /* Footer - eventualno smanjenje fonta */
+  .footer-top h2 {
+    font-size: 24px;
+  }
+
+  .footer-top p {
+    font-size: 16px;
+  }
+}
+/* =================== 410px-473px RESPONSIVE =================== */
+@media (min-width: 410px) and (max-width: 473px) {
+  .services-grid {
+    grid-template-columns: 1fr; /* jedan ispod drugog */
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 25px 15px; /* kraći container */
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .service-card h3 {
+    font-size: 22px; /* veći naslov */
+    margin-bottom: 10px;
+  }
+
+  .service-card p {
+    font-size: 17px; /* veći tekst */
+    line-height: 1.6;
+  }
+}
