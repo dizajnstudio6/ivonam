@@ -4779,3 +4779,19 @@ p, h1, h2, h3, h4, h5, h6, span, a, li {
     display: flex !important;
   }
 } 
+
+
+
+
+
+
+
+/* Media query za širinu ekrana od 100px do 600px */
+@media (min-width: 100px) and (max-width: 600px) {
+  body {
+    background-image: url('srpskifonpozadina.jpg');
+    background-size: cover; /* da slika pokrije ceo ekran */
+    background-repeat: no-repeat; /* da se ne ponavlja */
+    background-position: center; /* da bude centrirana */
+  }
+}
