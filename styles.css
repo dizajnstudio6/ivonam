@@ -2681,9 +2681,36 @@ body {
   }
 }
 
+/* =================== iPhone SE 1st gen =================== */
+@media (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+  .navbar {
+    padding: 15px 10px;
+  }
+  
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .portfolio-title {
+    font-size: 42px;
+  }
+  
+  h2 {
+    font-size: 34px;
+  }
+}
 
 /* =================== MOBILE SMALL =================== */
-@media (min-width: 311px) and (max-width: 474px) {
+@media (min-width: 321px) and (max-width: 374px) {
   .navbar {
     padding: 15px 12px;
   }
@@ -2722,6 +2749,29 @@ body {
   }
 }
 
+/* =================== iPhone 6/7/8 =================== */
+@media (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
+  .portfolio-title {
+    font-size: 55px;
+  }
+}
 
 /* =================== MOBILE MEDIUM =================== */
 @media (min-width: 376px) and (max-width: 399px) {
@@ -2747,6 +2797,105 @@ body {
   }
 }
 
+/* =================== iPhone 6/7/8 Plus =================== */
+@media (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
+  .portfolio-title {
+    font-size: 65px;
+  }
+  
+  .name-title {
+    font-size: 28px;
+  }
+}
+
+/* =================== iPhone X, XS, 11 Pro =================== */
+@media (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
+  .first-hero {
+    min-height: 100vh;
+  }
+}
+
+/* =================== iPhone XR, 11 =================== */
+@media (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
+  .first-hero {
+    min-height: 100vh;
+  }
+}
+
+/* =================== iPhone XS Max, 11 Pro Max =================== */
+@media (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+  
+  .hamburger-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar .nav-links {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: flex;
+  }
+  
+  .mobile-lang-buttons {
+    display: flex;
+  }
+  
+  .first-hero {
+    min-height: 100vh;
+  }
+}
 
 /* =================== 360px-415px LOOK LIKE 350px =================== */
 @media (min-width: 360px) and (max-width: 415px) {
@@ -3382,5 +3531,151 @@ body {
   .mobile-lang-buttons {
     display: flex !important;
   }
+} 
+/* ================= iPhone 320px FIX ================= */
+@media (max-width: 320px) {
+  html, body {
+    min-width: 340px;
+    overflow-x: hidden;
+  }
+
+  .container,
+  .section,
+  .wrapper,
+  .trivia-slider-wrapper {
+    min-width: 340px;
+  }
 }
- 
+/* ===== iPhone 320px REAL FIX ===== */
+@media (max-width: 320px) {
+  html {
+    width: 340px;
+  }
+
+  body {
+    width: 340px;
+    overflow-x: hidden;
+  }
+
+  /* centralni wrap */
+  .container,
+  .section,
+  .wrapper {
+    width: 340px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* ================= TRIVIA SLIDER WRAPPER ================= */
+.trivia-slider-wrapper {
+  position: relative;
+  overflow: visible; /* omogućava da strelice budu van track-a */
+  width: 100%;
+}
+
+/* ================= TRIVIA TRACK ================= */
+#triviaStripTrack {
+  display: flex;
+  gap: 20px;           /* razmak između slika */
+  overflow-x: auto;    /* horizontalni scroll za mobilne */
+  scroll-behavior: smooth;
+  position: relative;
+  padding: 0 50px;     /* ostavlja prostor za strelice sa strane */
+}
+
+/* ================= TRIVIA SLIDER IMAGES ================= */
+.strip-img {
+  position: relative;
+  min-width: 250px;     /* širina kartice */
+  max-width: 300px;     /* može se menjati po potrebi */
+  flex: 0 0 auto;
+}
+
+.strip-img img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.img-text {
+  margin-top: 10px;
+}
+
+.img-text h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.img-text p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ================= TRIVIA ARROWS ================= */
+#triviaPrev,
+#triviaNext {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#triviaPrev { left: 8px; }
+#triviaNext { right: 8px; }
+
+/* ================= HIDING SCROLLBAR FOR TRACK ================= */
+#triviaStripTrack::-webkit-scrollbar {
+  display: none;
+}
+#triviaStripTrack {
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* ================= RESPONSIVE ================= */
+/* Mobilni telefoni */
+@media (max-width: 768px) {
+  #triviaStripTrack {
+    padding: 0 40px;
+  }
+  .strip-img {
+    min-width: 200px;
+    max-width: 220px;
+  }
+  .img-text h3 { font-size: 18px; }
+  .img-text p { font-size: 13px; }
+}
+
+/* Manji telefoni */
+@media (max-width: 480px) {
+  #triviaStripTrack {
+    padding: 0 30px;
+  }
+  .strip-img {
+    min-width: 160px;
+    max-width: 180px;
+  }
+  .img-text h3 { font-size: 16px; }
+  .img-text p { font-size: 12px; }
+}
+
