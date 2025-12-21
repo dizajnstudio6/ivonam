@@ -4024,4 +4024,19 @@ body {
   .services-grid .service-card p {
     font-size: 14px;
   }
+} 
+
+
+/* =================== HOME PAGE BACKGROUND FOR MOBILE =================== */
+@media (min-width: 299px) and (max-width: 780px) {
+  .first-hero {
+    background-image: url('images/srpskifonpozadina.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+   
+  .first-hero .hero-background-video {
+    display: none;
+  }
 }
