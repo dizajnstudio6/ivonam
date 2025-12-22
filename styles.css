@@ -4847,4 +4847,97 @@ html body .services-grid .service-card .service-text {
   background: transparent !important; /* keep previous behavior */
   color: inherit !important;           /* do not force color changes here */
   padding: 12px !important;
+}  
+
+
+
+/* ===== Minimal, targeted fixes (append to end of styles.css) =====
+   - Make all .service-card containers the same (longer) so text fits
+   - Remove all hover/expand effects on containers
+   - Ensure .service-img is visible inside the card (no slide/reveal)
+   - Force .services-page background to /images/mojeusluge.jpg from 600px — 2000px
+   Only these properties are changed (high-specificity overrides).
+*/
+
+/* 1) Background for 600px — 2000px */
+@media (min-width: 600px) and (max-width: 2000px) {
+  html body .services-page {
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-blend-mode: normal !important;
+  }
+
+  /* hide any pseudo overlays that could block the background */
+  html body .services-page::before,
+  html body .services-page::after {
+    display: none !important;
+    content: none !important;
+  }
 }
+
+/* 2) Make service cards uniform and longer so text fits (same size across all breakpoints) */
+html body .services-grid .service-card {
+  height: 320px !important;        /* uniform, longer card height */
+  min-height: 320px !important;
+  max-height: 320px !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+  overflow: auto !important;       /* allow text to wrap/scroll inside if needed */
+  transition: none !important;     /* disable transitions */
+  transform: none !important;      /* disable transforms */
+}
+
+/* 3) Remove all hover/ focus effects that change size or transform */
+html body .services-grid .service-card:hover,
+html body .services-grid .service-card:focus,
+html body .services-grid .service-card:active {
+  height: 320px !important;
+  min-height: 320px !important;
+  max-height: 320px !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* 4) Ensure text area sits inside card and is readable */
+html body .services-grid .service-card .service-text {
+  position: relative !important;   /* not absolute overlay */
+  z-index: 2 !important;
+  background: transparent !important;
+  color: #000 !important;          /* black text so it fits in white/bright containers */
+  padding: 0 !important;           /* card padding is used */
+  margin: 0 !important;
+  display: block !important;
+}
+
+/* 5) Make images stay inside the card (visible) and NOT perform slide/reveal */
+html body .services-grid .service-card .service-img,
+html body .services-grid .service-card .service-img img,
+html body .services-grid .service-card img {
+  display: block !important;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: calc(100% - 0px) !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  pointer-events: auto !important;
+}
+
+/* 6) Ensure links inside cards remain visible and black */
+html body .services-grid .service-card a {
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
+/* 7) Accessibility: keep simple focus outline without animation */
+html body .services-grid .service-card:focus {
+  outline: 3px solid rgba(0,0,0,0.12) !important;
+  outline-offset: 2px !important;
+}   
