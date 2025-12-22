@@ -4371,4 +4371,66 @@ html[lang="en"] .first-hero {
   html body .services-page .service-card {
     color: #000 !important;
   }
+} 
+
+
+/* ===== Services background + heading color (append to end of styles.css) =====
+   - Mobile: /images/mojeusluge2.jpg from 100px — 699px (vertical fit)
+   - Desktop: /images/mojeusluge.jpg from 700px — 2000px (cover)
+   - Heading (h2) in services-page set to white on desktop
+   - High specificity + !important to override other rules
+*/
+
+@media (min-width: 100px) and (max-width: 699px) {
+  html body .services-page {
+    background-image: url('/images/mojeusluge2.jpg') !important;
+    background-size: auto 100% !important;    /* height-first -> vertical look */
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-blend-mode: normal !important;
+  }
+
+  /* remove any overlay pseudo-elements that could cover the background */
+  html body .services-page::before,
+  html body .services-page::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Mobile text: keep dark for readability over the vertical image */
+  html body .services-page h2,
+  html body .services-page .service-text,
+  html body .services-page .service-card {
+    color: #000 !important;
+  }
 }
+
+@media (min-width: 700px) and (max-width: 2000px) {
+  html body .services-page {
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-size: cover !important;        /* horizontal / cover */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-blend-mode: normal !important;
+  }
+
+  /* remove overlay pseudo-elements if present */
+  html body .services-page::before,
+  html body .services-page::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Make the heading white on desktop */
+  html body .services-page h2 {
+    color: #fff !important;
+  }
+
+  /* Make services text white on desktop for readability (adjust if needed) */
+  html body .services-page .service-text,
+  html body .services-page .service-card {
+    color: #fff !important;
+  }
+} 
