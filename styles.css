@@ -4592,4 +4592,112 @@ html body .services-page::after {
 .services-grid .service-card > .service-text {
   width: 100%;
   height: auto;
+} 
+
+/* ===== Compact service cards: show text only, reveal image on hover =====
+   - Default: short card showing text on white background
+   - Hover: expands card and reveals image (image slides down)
+   - Applies to both Serbian and English pages
+   Append at end of styles.css, after other services rules (overrides them). */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 18px !important;
+  align-items: start !important; /* allow individual cards to expand on hover */
 }
+
+/* Card base: short, white background, overflow hidden */
+.services-grid .service-card {
+  position: relative !important;
+  overflow: hidden !important;
+  background: #fff !important;        /* white container */
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0,0,0,0.05) !important;
+  transition: height 320ms ease, transform 220ms ease !important;
+  height: 120px !important;           /* default short height (text only) */
+  display: block !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Image layer (absolute, hidden above the card) */
+.services-grid .service-card .service-img {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-100%) !important; /* hidden above */
+  opacity: 0;
+  transition: transform 360ms ease, opacity 360ms ease;
+}
+
+.services-grid .service-card .service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text bar stays on top of image */
+.services-grid .service-card .service-text {
+  position: relative !important;
+  z-index: 2 !important;
+  background: transparent !important; /* keep card white; text bar uses padding below */
+  color: #000 !important;             /* black text */
+  padding: 14px !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* On hover: expand card and reveal image */
+.services-grid .service-card:hover {
+  transform: translateY(-6px) !important;
+}
+
+/* Hover sizes (override default height) */
+@media (min-width: 700px) {
+  .services-grid .service-card { height: 140px !important; }      /* default desktop short */
+  .services-grid .service-card:hover { height: 340px !important; }/* expanded on hover */
+}
+
+@media (min-width: 480px) and (max-width: 699px) {
+  .services-grid .service-card { height: 130px !important; }      /* tablet short */
+  .services-grid .service-card:hover { height: 300px !important; }/* expanded */
+}
+
+@media (max-width: 479px) {
+  .services-grid .service-card { height: 110px !important; }      /* mobile short */
+  .services-grid .service-card:hover { height: 260px !important; }/* expanded */
+}
+
+/* Reveal image when expanded (hover) */
+.services-grid .service-card:hover .service-img {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Ensure links inside the text remain clickable and visible */
+.services-grid .service-card .service-text a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Accessibility focus (same behavior as hover) */
+.services-grid .service-card:focus {
+  outline: 3px solid rgba(101,67,33,0.25) !important;
+}
+.services-grid .service-card:focus .service-img {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}  
+
+
