@@ -5764,7 +5764,6 @@ body {
 
 
 
-
 /* Scoped styles for the section: prefix with #about-services to avoid conflicts */
 #about-services { background: #f3f3f4; padding: 40px 0 80px; font-family: Arial, Helvetica, sans-serif; color: #222; }
 #about-services .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
