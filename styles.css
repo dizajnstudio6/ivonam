@@ -4152,3 +4152,138 @@ html[lang="en"] .first-hero {
     background: transparent !important;
   }
 } 
+
+
+/* =========================
+   Mobile footer adjustments
+   Applies from 100px up to 500px (both SRB and ENG pages)
+   - white footer background
+   - remove small element backgrounds (make transparent)
+   - switch text to black
+   - reduce paddings / font-sizes so footer fits nicely on phones
+   Append this to the end of your styles.css
+   ========================= */
+
+@media (min-width: 100px) and (max-width: 500px) {
+  /* Main footer container */
+  .footer {
+    background: #ffffff !important;          /* white background */
+    color: #000 !important;                  /* black default text color */
+    padding: 18px 5% !important;             /* reduce padding */
+  }
+
+  /* Top area */
+  .footer-top {
+    margin-bottom: 12px !important;
+  }
+  .footer-top h2 {
+    background: transparent !important;      /* remove brown overlay */
+    color: #000 !important;
+    font-size: 20px !important;
+    margin-bottom: 6px !important;
+    display: block;
+    padding: 0 !important;
+  }
+  .footer-top p {
+    background: transparent !important;
+    color: #000 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Footer menu (links) - stacked and smaller */
+  .footer-menu {
+    margin-bottom: 12px !important;
+  }
+  .footer-menu ul {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: center;
+  }
+  .footer-menu ul li a {
+    background: transparent !important;
+    color: #000 !important;
+    font-size: 16px !important;
+    opacity: 1 !important;
+    padding: 6px 0 !important;
+  }
+
+  /* Social block */
+  .footer-social {
+    margin-bottom: 10px !important;
+    gap: 12px !important;
+  }
+  .footer-social a {
+    background: transparent !important;
+    color: #000 !important;
+    opacity: 1 !important;
+  }
+  .footer-social svg,
+  .footer-icons-inline svg,
+  .footer-social-icons svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  /* Footer container layout (stack) */
+  .footer-container {
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 0 6px !important;
+  }
+
+  .footer-section {
+    margin: 8px 0 !important;
+    text-align: center !important;
+    min-width: unset !important;
+  }
+  .footer-section h4 {
+    background: transparent !important;
+    color: #000 !important;
+    font-size: 18px !important;
+    padding: 0 !important;
+    border-bottom: none !important;
+  }
+  .footer-section ul li a,
+  .footer-section p {
+    background: transparent !important;
+    color: #000 !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Footer bottom */
+  .footer-bottom {
+    padding-top: 10px !important;
+    border-top: none !important;
+    gap: 8px !important;
+    justify-content: center !important;
+  }
+  .footer-bottom p {
+    background: transparent !important;
+    color: #000 !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+  }
+
+  /* Scroll to top button - smaller and repositioned */
+  #scrollTop {
+    bottom: 14px !important;
+    right: 14px !important;
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 18px !important;
+  }
+
+  /* Ensure clickable icons / links remain visible */
+  .footer a {
+    color: #000 !important;
+  }
+
+  /* Remove any semi-opaque overlays used elsewhere in footer */
+  .footer *[style*="rgba(101, 67, 33"] {
+    background: transparent !important;
+  }
+} 
+
