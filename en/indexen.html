@@ -360,6 +360,78 @@ I approach every project with great dedication, a desire to learn, and continuou
     </div>
   </section> 
 
+
+
+        
+/* PORTFOLIO HORIZONTAL SCROLL */
+.portfolio {
+  padding: 100px 0;
+  background: #fff;
+  text-align: center;
+  overflow: hidden; /* sprečava horizontalni overflow na celom delu */
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.portfolio-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.portfolio-scroll a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-item {
+  flex: 0 0 auto;
+  width: 300px;       /* fiksna širina */
+  height: 200px;      /* fiksna visina */
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s;
+  background: #f9f9f9;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+  border-radius: 12px;
+}
+
+.portfolio-item:hover img {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.portfolio-item p {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+/* OVDE JE VAŽNO */
+body {
+  overflow-x: hidden; /* sprečava horizontalni scrollbar na celom body-ju */
+}
+
+
+        
+
         
   <!-- ================= CONTACT ================= --> 
   <section class="contact" id="contact"> 
@@ -440,5 +512,6 @@ I approach every project with great dedication, a desire to learn, and continuou
      
 </body>
 </html>
+
 
 
