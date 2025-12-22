@@ -5741,158 +5741,181 @@ body {
 
 
 
-
-
-
-:root{
-  --bg: #f3f3f4;
-  --card-bg: #ffffff;
-  --accent: #654321; /* brown accent */
-  --text: #111;
-  --muted: #666;
-  --radius: 12px;
-  --shadow: 0 8px 24px rgba(15,15,15,0.08);
+/* Basic reset + font stack */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; }
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  color: #222;
+  background: #f5f5f6;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Container helper (matches your page container sizing) */
-.container {
-  max-width: 1200px;
+/* Wrapper sizing (px-based as requested) */
+.wrap {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 28px 20px;
 }
 
 /* Section */
-.services-section {
-  background: var(--bg);
-  padding: 70px 0;
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+.about-services {
+  padding: 40px 0 80px;
+  background: #f3f3f4;
 }
 
-.services-header {
+/* Hero (heading + intro) */
+.hero {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
-.services-header h2 {
-  font-size: 36px;
-  margin: 0 0 8px;
-  color: var(--text);
+.title {
+  font-size: 32px;         /* desktop base */
+  line-height: 1.1;
+  color: #111;
+  margin-bottom: 10px;
 }
 
-.services-intro {
-  color: var(--muted);
+.subtitle {
   font-size: 16px;
+  color: #555;
+  max-width: 880px;
   margin: 0 auto;
-  max-width: 760px;
 }
 
-/* Grid */
-.services-grid {
+/* Grid: two-column layout on larger screens */
+.content-grid {
   display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(4, 1fr); /* desktop default */
-  align-items: stretch;
+  grid-template-columns: 1fr 420px; /* main text + sidebar (px width) */
+  gap: 28px;
+  align-items: start;
 }
 
-/* Card */
-.service-card {
-  background: transparent;
-  border-radius: var(--radius);
-  transition: transform .32s ease, box-shadow .32s ease;
-  will-change: transform;
-}
-
-.service-card-inner {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 26px;
-  height: 100%;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 12px;
+/* Card base */
+.card {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(10,10,10,0.06);
+  padding: 22px;
   border: 1px solid rgba(0,0,0,0.04);
 }
 
-/* Badge (category) */
-.service-badge {
-  display: inline-block;
-  background: rgba(101,67,33,0.08);
-  color: var(--accent);
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 12px;
-  letter-spacing: .4px;
-}
-
-/* Title & description */
-.service-title {
-  margin: 6px 0 0;
+/* Text card */
+.card--text .card-title {
   font-size: 20px;
-  color: var(--text);
+  color: #111;
+  margin-bottom: 10px;
 }
 
-.service-desc {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
+.lead {
+  font-size: 16px;      /* comfortable reading size */
+  color: #333;
+  margin-bottom: 14px;
+}
+
+/* Sidebar list */
+.card--list .card-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.services-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.services-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background .18s ease, transform .18s ease;
+}
+
+.services-list li strong {
   font-size: 15px;
-  flex: 1 0 auto;
+  color: #654321; /* brown accent */
 }
 
-/* Hover */
-.service-card:hover .service-card-inner {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(15,15,15,0.12);
-  border-color: rgba(0,0,0,0.06);
+.services-list li .desc {
+  font-size: 14px;
+  color: #666;
 }
 
-/* Make cards clickable visual */
-.service-card-inner:focus-within,
-.service-card-inner:focus {
-  outline: 2px solid rgba(101,67,33,0.12);
-  outline-offset: 3px;
+/* hover subtle lift for list items */
+.services-list li:hover {
+  background: rgba(101,67,33,0.03);
+  transform: translateY(-4px);
 }
 
-/* Responsive breakpoints */
-/* Large desktops */
+/* CTA */
+.cta {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background: #654321; /* brown */
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Responsive breakpoints (px values) */
+/* Large screens — widen title */
 @media (min-width: 1400px) {
-  .services-grid { gap: 32px; grid-template-columns: repeat(4, 1fr); }
-  .services-header h2 { font-size: 42px; }
+  .wrap { max-width: 1300px; padding: 36px 32px; }
+  .title { font-size: 38px; }
+  .content-grid { gap: 36px; grid-template-columns: 1fr 480px; }
+  .lead { font-size: 18px; }
 }
 
-/* Desktop / laptop */
+/* Desktop / small laptop */
 @media (min-width: 1024px) and (max-width: 1399px) {
-  .services-grid { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .wrap { padding: 32px 24px; }
+  .content-grid { grid-template-columns: 1fr 420px; gap: 30px; }
+  .title { font-size: 34px; }
 }
 
 /* Tablet */
 @media (min-width: 700px) and (max-width: 1023px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
-  .services-header h2 { font-size: 32px; }
+  .wrap { padding: 28px 20px; }
+  .content-grid { grid-template-columns: 1fr; } /* stack */
+  .card { padding: 20px; }
+  .title { font-size: 30px; }
+  .subtitle { font-size: 15px; }
 }
 
-/* Mobile */
-@media (max-width: 699px) {
-  .services-grid { grid-template-columns: 1fr; gap: 18px; }
-  .services-section { padding: 40px 0; }
-  .services-header h2 { font-size: 26px; }
-  .service-card-inner { padding: 18px; }
-  .service-title { font-size: 18px; }
-  .service-desc { font-size: 14px; }
+/* Small tablets & large phones */
+@media (min-width: 480px) and (max-width: 699px) {
+  .wrap { padding: 22px 18px; }
+  .content-grid { grid-template-columns: 1fr; }
+  .title { font-size: 26px; }
+  .lead { font-size: 15px; }
+  .card { padding: 16px; border-radius: 10px; }
 }
 
-/* Optional small utility: make whole card clickable if wrapped with <a> */
-.service-card a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
+/* Mobile (phones) */
+@media (max-width: 479px) {
+  .wrap { padding: 18px 14px; }
+  .title { font-size: 22px; }
+  .subtitle { font-size: 14px; }
+  .lead { font-size: 15px; }
+  .card { padding: 14px; border-radius: 10px; }
+  .btn { padding: 10px 14px; font-size: 14px; }
+  .services-list li { padding: 8px; }
 }
 
-/* Accessibility: reduced motion */
+/* Accessibility and reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .service-card, .service-card-inner { transition: none; }
+  * { transition: none !important; animation: none !important; }
 }
