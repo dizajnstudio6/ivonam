@@ -5929,3 +5929,54 @@ html body .services-page .services-grid {
   }
 }
 
+/* ===== Make Moje usluge cards wider (horizontal only) =====
+   Append this at the end of styles.css. Only affects horizontal sizing.
+*/
+
+html body .services-page .services-grid {
+  /* Allow the grid to grow so columns become wider on large screens */
+  max-width: 1600px !important;
+  margin: 0 auto !important;
+  gap: 24px !important;
+  /* Four columns, each at least 300px wide, expand proportionally */
+  grid-template-columns: repeat(4, minmax(300px, 1fr)) !important;
+  box-sizing: border-box !important;
+}
+
+/* Keep cards the same height as before (do not make them longer) */
+html body .services-page .services-grid .service-card {
+  height: 300px !important;     /* same as original desktop height */
+  min-height: 300px !important;
+  max-height: 300px !important;
+}
+
+/* Adjust intermediate breakpoints so cards stay readable but not taller */
+@media (max-width: 1200px) {
+  html body .services-page .services-grid {
+    max-width: 1200px !important;
+    grid-template-columns: repeat(4, minmax(260px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  html body .services-page .services-grid {
+    grid-template-columns: repeat(3, minmax(240px, 1fr)) !important;
+    max-width: 1000px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .services-page .services-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    max-width: 760px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body .services-page .services-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 420px !important;
+    gap: 16px !important;
+  }
+}
+
