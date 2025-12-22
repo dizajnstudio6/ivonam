@@ -4698,6 +4698,52 @@ html body .services-page::after {
 .services-grid .service-card:focus .service-img {
   transform: translateY(0) !important;
   opacity: 1 !important;
-}  
+} 
 
+/* ===== Fix: only adjust service-card container sizes and colors (minimal overrides) =====
+   - Make containers plain white (no shadow / no border)
+   - Make containers sized to their text (shorter), no forced large heights
+   - Ensure service text is black and not covering the whole card
+   - IMPORTANT: This overrides ONLY sizing & color-related properties, nothing else
+   Append this to the end of styles.css
+*/
+
+html body .services-grid .service-card {
+  background: #ffffff !important;   /* plain white */
+  box-shadow: none !important;      /* remove any shadow */
+  border: none !important;          /* remove border */
+  padding: 12px 14px !important;    /* compact padding so text fits */
+  height: auto !important;          /* allow height to follow content (shorter) */
+  min-height: 0 !important;
+  overflow: visible !important;
+  transition: none !important;      /* avoid unintended height/transform animations */
+}
+
+/* Make sure the text area is normal flow (not absolute overlay) and is black */
+html body .services-grid .service-card .service-text {
+  position: relative !important;    /* ensure text sits inside the white box */
+  background: transparent !important;
+  color: #000 !important;           /* black text for readability */
+  padding: 0 !important;            /* use the card's padding instead */
+  margin: 0 !important;
+  display: block !important;
+}
+
+/* If any earlier rules force the .service-img to change container height, avoid that here:
+   keep images styled elsewhere — we only ensure they don't force large min-heights. */
+html body .services-grid .service-card .service-img,
+html body .services-grid .service-card img {
+  max-height: none !important;
+  height: auto !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Keep hover/expand behavior disabled for height changes (only visual transforms remain if present) */
+html body .services-grid .service-card:hover,
+html body .services-grid .service-card:focus {
+  height: auto !important;
+  transform: none !important;
+  box-shadow: none !important;
+}  
 
