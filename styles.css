@@ -495,3 +495,134 @@ body {
   position: relative !important;
   z-index: 1 !important;
 }
+/* ===== Fixes: hero video, about cards, and trivia arrows =====
+   Append to the end of styles.css
+*/
+
+/* 1) First-hero video: cover the hero area but stay within viewport (accounts for navbar) */
+.first-hero,
+.first-hero .hero-container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.first-hero .hero-background-video,
+.hero-background-video {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: calc(100vh - 90px) !important; /* leaves space for the fixed navbar */
+  object-fit: cover !important;
+  object-position: center center !important;
+  z-index: 0 !important;
+}
+
+/* Keep fallback text and other content above the video */
+.first-hero .video-fallback-text,
+.first-hero .hero-container,
+.first-hero .hero-text,
+.first-hero > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Tweak for smaller screens (reduce top padding / account for shorter nav) */
+@media (max-width: 900px) {
+  .first-hero { padding-top: 70px !important; }
+  .first-hero .hero-background-video,
+  .hero-background-video {
+    max-height: calc(100vh - 70px) !important;
+    object-position: center top !important;
+  }
+}
+
+/* 2) About / O meni: equal-size cards in a row, wrap on small screens */
+.about-info-cards {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 30px !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+}
+
+/* Make each info-card the same fixed box (adjust width/height if you prefer) */
+.about-info-cards .info-card,
+.info-card {
+  flex: 0 0 260px !important;   /* fixed column width */
+  width: 260px !important;
+  height: 350px !important;     /* equal height for all cards */
+  min-height: 350px !important;
+  box-sizing: border-box !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Ensure inner text area scrolls if content overflows */
+.info-card-text {
+  max-height: 100% !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* On very small screens stack cards full width */
+@media (max-width: 480px) {
+  .about-info-cards .info-card,
+  .info-card {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 420px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* 3) Trivia arrows: make visible & clickable on all viewports (override hiding rules) */
+.trivia-nav-btn,
+#triviaPrev,
+#triviaNext {
+  display: block !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 9999 !important;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: rgba(0,0,0,0.65) !important;
+  color: #fff !important;
+  font-size: 26px !important;
+  line-height: 44px !important;
+  text-align: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+}
+
+/* left / right placement */
+#triviaPrev { left: 8px !important; }
+#triviaNext { right: 8px !important; }
+
+/* Slightly smaller on very small screens */
+@media (max-width: 480px) {
+  .trivia-nav-btn,
+  #triviaPrev,
+  #triviaNext {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 22px !important;
+    line-height: 40px !important;
+  }
+  #triviaPrev { left: 12px !important; }
+  #triviaNext { right: 12px !important; }
+}
+
+/* Safety: ensure arrows are above the track and not hidden by overflow */
+.trivia-slider-wrapper,
+#triviaStripTrack,
+.strip-track {
+  position: relative !important;
+  z-index: 1 !important;
+}
