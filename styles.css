@@ -4611,9 +4611,7 @@ html body .services-page::after {
 .services-page h2,
 html[lang="en"] .services-page h2,
 html[lang="sr"] .services-page h2 {
-  color: #ffffff !important;
-  /* small text-shadow helps readability over images */
-  text-shadow: 0 1px 3px rgba(0,0,0,0.45) !important;
+  color: #ffffff !important; 
 }
 
 /* Also make any anchor inside the heading white */
@@ -4624,3 +4622,44 @@ html[lang="sr"] .services-page h2 {
 }
 
 
+/* ===== Services background only (both SRB & ENG) =====
+   - Mobile: /images/mojeusluge2.jpg for 100px — 700px (vertical fit)
+   - Desktop: /images/mojeusluge.jpg for 701px — 2000px (cover)
+   This snippet only touches backgrounds and hides potential overlay pseudo-elements.
+   Append this block to the end of styles.css (remove any older conflicting services rules first).
+*/
+
+@media (min-width: 100px) and (max-width: 700px) {
+  .services-page {
+    background-image: url('/images/mojeusluge2.jpg') !important;
+    background-size: auto 100% !important;    /* height-first -> vertical appearance */
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-blend-mode: normal !important;
+  }
+
+  /* Hide any overlay pseudo-elements that might cover the background */
+  .services-page::before,
+  .services-page::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 2000px) {
+  .services-page {
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-size: cover !important;        /* horizontal / cover */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-blend-mode: normal !important;
+  }
+
+  .services-page::before,
+  .services-page::after {
+    display: none !important;
+    content: none !important;
+  }
+}
