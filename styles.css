@@ -3962,4 +3962,58 @@ body {
   .first-hero .hero-background-video {
     display: none;
   }
+} 
+
+
+/* =========================
+   English background/video breakpoints (append to end of styles.css)
+   - Image: images/engleskifonpozadina.jpeg for 100px — 700px
+   - Video: videos/pozadinaeng.mp4 for 702px — 2000px
+   Targets only pages with <html lang="en"> so Serbian page is unaffected.
+   ========================= */
+
+/* Default: don't force a background image; allow video to show on larger screens */
+html[lang="en"] .first-hero {
+  background-image: none !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
+
+/* MOBILE / SMALL DEVICES: 100px — 700px -> use English background image and hide video */
+@media (min-width: 100px) and (max-width: 700px) {
+  html[lang="en"] .first-hero {
+    background-image: url('images/engleskifonpozadina.jpeg') !important;
+    background-attachment: scroll !important;
+  }
+
+  /* Hide video on these small widths */
+  html[lang="en"] .first-hero .hero-background-video {
+    display: none !important;
+  }
+}
+
+/* DESKTOP / LARGER DEVICES: 702px — 2000px -> show English video, remove background image */
+@media (min-width: 702px) and (max-width: 2000px) {
+  html[lang="en"] .first-hero {
+    background-image: none !important;
+  }
+
+  /* Ensure the video is visible on the English page for this range */
+  html[lang="en"] .first-hero .hero-background-video {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+/* Small safety: if some other CSS forces the video to display:none globally on mobile,
+   the above rules use !important to override. */
+
+/* NOTE:
+   - Path 'images/engleskifonpozadina.jpeg' is relative to styles.css (project root).
+   - Path for the video source should already be correct in en/indexen.html:
+       <source src="../videos/pozadinaeng.mp4" type="video/mp4">
+   - If your images or videos are in a different folder, update the url() or <source> path accordingly.
+*/
