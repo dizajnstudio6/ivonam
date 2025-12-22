@@ -4340,3 +4340,35 @@ html[lang="en"] .first-hero {
     color: #000 !important;
   }
 } 
+
+/* =========================
+   SERVICES: use mojeusluge2.jpg on mobile (100px - 700px)
+   Applies to both Serbian and English pages.
+   Append this to the end of styles.css
+   ========================= */
+
+@media (min-width: 100px) and (max-width: 700px) {
+  /* High-specificity selector + !important to override earlier rules */
+  html body .services-page {
+    background-image: url('/images/mojeusluge2.jpg') !important;
+    background-size: auto 100% !important;    /* force height-fit -> vertical look */
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-blend-mode: normal !important;
+  }
+
+  /* Remove any overlay pseudo-elements that could hide the image */
+  html body .services-page::before,
+  html body .services-page::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Ensure text is readable over the mobile image */
+  html body .services-page h2,
+  html body .services-page .service-text,
+  html body .services-page .service-card {
+    color: #000 !important;
+  }
+}
