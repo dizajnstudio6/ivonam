@@ -5891,3 +5891,41 @@ html body .services-page .services-grid .service-card .service-text > * {
 html body .services-page .services-grid .service-card:focus {
   outline-offset: 3px !important;
 }
+
+/* ===== Make Moje usluge cards wider (only layout change) =====
+   Paste this at the end of styles.css. This only affects card width:
+   - larger min column width on desktop so text doesn't wrap as much
+   - keeps same number of columns and heights unchanged
+*/
+
+html body .services-page .services-grid {
+  max-width: 1400px !important;         /* constrain grid so columns can be wider on large screens */
+  margin: 0 auto !important;            /* center grid */
+  gap: 24px !important;                 /* slightly larger gap — optional, helps spacing */
+  grid-template-columns: repeat(4, minmax(260px, 1fr)) !important;
+  box-sizing: border-box !important;
+}
+
+/* Adjust intermediate breakpoints to keep good card widths on smaller viewports */
+@media (max-width: 1023px) {
+  html body .services-page .services-grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr)) !important;
+    max-width: 1100px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html body .services-page .services-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+    max-width: 760px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  html body .services-page .services-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 420px !important;
+    gap: 16px !important;
+  }
+}
+
