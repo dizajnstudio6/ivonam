@@ -5494,3 +5494,147 @@ html body .services-page .services-grid .service-card:focus {
   }
 } 
 
+/* ===== FORCE-RESTORE: ORIGINAL MOJE USLUGE LAYOUT & BEHAVIOR =====
+   Paste this at the VERY END of styles.css to override earlier conflicting rules.
+   Restores: 4×2 grid (responsive), separate cards (not one big block), white card backgrounds,
+   text visible inside cards, hover reveals image (no collapsing into one container).
+*/
+
+html body .services-page {
+  padding: 90px 8% 140px !important;
+  position: relative !important;
+  background: url('../images/mojeusluge.jpg') center/cover no-repeat !important;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+
+/* Heading */
+html body .services-page h2 {
+  position: relative !important;
+  z-index: 2 !important;
+  font-size: 56px !important;
+  text-align: center !important;
+  margin-bottom: 40px !important;
+  color: #fff !important;
+}
+
+/* GRID: ensure separate cards (4 columns on desktop, responsive below) */
+html body .services-page .services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-auto-rows: auto !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+}
+
+/* CARD: restore original box behavior (fill cell, white background, no collapse) */
+html body .services-page .services-grid .service-card {
+  display: block !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  padding: 30px 20px !important;
+  text-align: center !important;
+  transition: transform .4s ease, background .4s ease !important;
+  min-height: 180px !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* Ensure cards don't get forced into tiny fixed sizes */
+html body .services-page .services-grid .service-card,
+html body .services-page .services-grid .service-card * {
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+/* SERVICE TEXT: overlay as originally designed, visible by default */
+html body .services-page .services-grid .service-card .service-text {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 2 !important;
+  transition: opacity 0.4s ease !important;
+  background: rgba(255,255,255,0.9) !important;
+  padding: 30px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  opacity: 1 !important;
+}
+
+/* Headings & paragraphs inside cards */
+html body .services-page .services-grid .service-card h3,
+html body .services-page .services-grid .service-card p {
+  color: #000 !important;
+}
+
+/* HOVER: lift card, reveal background image (service-img) — like original */
+html body .services-page .services-grid .service-card:hover {
+  transform: translateY(-10px) !important;
+}
+
+/* On hover the overlay fades out to reveal the background image */
+html body .services-page .services-grid .service-card:hover .service-text {
+  opacity: 0 !important;
+}
+
+/* IMAGE LAYER: positioned behind text, reveals on hover */
+html body .services-page .services-grid .service-card .service-img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+html body .services-page .services-grid .service-card .service-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+html body .services-page .services-grid .service-card:hover .service-img {
+  opacity: 1 !important;
+}
+
+/* Responsive: stack into 2 columns on smaller screens (keeps separate cards) */
+@media (max-width: 768px) {
+  html body .services-page .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  html body .services-page h2 {
+    font-size: 36px !important;
+  }
+
+  html body .services-page .services-grid .service-card {
+    padding: 25px 16px !important;
+    min-height: 200px !important;
+  }
+
+  html body .services-page .services-grid .service-card .service-text {
+    padding: 20px !important;
+  }
+}
+
+/* Extra safety: override earlier "force single-container" rules (if present) */
+html body .services,
+html body .services-grid,
+html body .services-page .services-grid {
+  display: grid !important;
+}
+
