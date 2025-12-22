@@ -5409,7 +5409,88 @@ html body .services-grid .service-card:focus {
 
 .service-card:hover .service-img {
   opacity: 1;
+}   
+
+/* ===== Services: force 8 separate equal cards that fit one section screen =====
+   - 4 columns × 2 rows on wider screens (8 cards visible)
+   - 2 columns × 4 rows on small screens
+   - Grid height limited to viewport so the whole services section fits one screen
+   - Minimal, high-specificity overrides — append to end of styles.css
+*/
+
+html body .services-page {
+  /* ensure section is the reference for sizing */
+  position: relative !important;
 }
 
+/* Desktop / tablet: 4 columns × 2 rows, fill available section height */
+html body .services-page .services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+  /* limit grid height so 2 rows fit comfortably in the viewport:
+     adjust the 220px if your header/section paddings are different */
+  height: calc(100vh - 220px) !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
 
+/* Make each card fill its cell and be equal height */
+html body .services-page .services-grid .service-card {
+  height: 100% !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* Make the text area sit in normal flow (avoid cross-card overlap) */
+html body .services-page .services-grid .service-card .service-text {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  z-index: 2 !important;
+  background: transparent !important; /* keeps existing visual look intact */
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure service-img (if used) does not escape its card */
+html body .services-page .services-grid .service-card .service-img,
+html body .services-page .services-grid .service-card img {
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Keep hover transforms from changing grid cell sizes */
+html body .services-page .services-grid .service-card:hover,
+html body .services-page .services-grid .service-card:focus {
+  transform: none !important;
+}
+
+/* ===== Mobile: 2 columns × 4 rows and still fit viewport height ===== */
+@media (max-width: 700px) {
+  html body .services-page .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-rows: repeat(4, 1fr) !important;
+    gap: 16px !important;
+    height: calc(100vh - 220px) !important; /* keeps the grid visible within viewport */
+  }
+
+  html body .services-page .services-grid .service-card .service-text {
+    padding: 14px !important;
+  }
+} 
 
