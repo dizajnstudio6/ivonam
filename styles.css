@@ -626,3 +626,71 @@ body {
   position: relative !important;
   z-index: 1 !important;
 }
+/* ===== EMERGENCY FIX: put hero video behind content & restore page visibility =====
+   Paste this at the very end of styles.css, save, then hard-refresh the page.
+*/
+
+/* Ensure html/body are visible */
+html, body {
+  display: block !important;
+  visibility: visible !important;
+  height: auto !important;
+}
+
+/* Ensure first hero is a normal block and not hiding content */
+.first-hero {
+  position: relative !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+/* Put video behind everything (negative z-index) so it never covers content */
+.first-hero .hero-background-video,
+.hero-background-video,
+video.hero-background-video,
+.first-hero video {
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  z-index: -1 !important;        /* <-- safe: behind page content */
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Ensure hero content (text, container) sits above the video */
+.first-hero .hero-container,
+.first-hero .hero-text,
+.first-hero .video-fallback-text,
+.first-hero > * {
+  position: relative !important;
+  z-index: 2 !important;
+  background: transparent !important;
+}
+
+/* If the video was set to fixed, make sure it doesn't block the page */
+.first-hero .hero-background-video[style*="position:fixed"],
+.hero-background-video[style*="position:fixed"],
+video[style*="position:fixed"] {
+  position: absolute !important;
+}
+
+/* Safety: prevent an accidental large element from covering the page */
+html body *[style*="display:none"] {
+  /* no-op - preserved for safety, not forcing changes here */
+}
+
+/* Temporary debug outline (remove after confirming fixed) */
+/* Uncomment only while debugging:
+.first-hero, .first-hero * {
+  outline: 1px dashed rgba(0,128,255,0.4) !important;
+}
+*/
+
