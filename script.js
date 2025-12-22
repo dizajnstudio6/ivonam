@@ -404,5 +404,16 @@ html body .services-page .services-grid .service-card:hover .service-img { opaci
   }catch(err){
     console.error('Script error:', err);
   }
+})(); 
+
+(function(){
+  const btn = document.querySelector('.hamburger-menu-toggle');
+  const menu = document.querySelector('.mobile-menu');
+  if(!btn || !menu) { console.warn('hamburger or mobile menu element not found:', !!btn, !!menu); return; }
+  btn.addEventListener('click', ()=> {
+    btn.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+  console.log('Temporary hamburger click-handler added. Click the hamburger to open/close mobile menu.');
 })();
 
