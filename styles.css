@@ -4435,231 +4435,161 @@ html[lang="en"] .first-hero {
   }
 } 
 
-/* ===== Replace / append these rules to the end of your styles.css =====
-   - Fix desktop services background path so the desktop image loads reliably.
-   - Make all .service-card containers equal height (matches visible image area).
-   - Make cards slightly shorter on hover (smooth transition) for all breakpoints.
-   - Works for both Serbian and English pages (shared stylesheet).
-   =================================================================== */
 
-/* --- Services background: prefer relative path first, fallback to absolute --- */
+/* ========== SERVICES: background + compact cards (both SRB & ENG) ==========
+   - Mobile (100px–700px): /images/mojeusluge2.jpg (vertical fit)
+   - Desktop (701px–2000px): /images/mojeusluge.jpg (cover)
+   - Cards are shorter and use a bottom text bar (text no longer covers whole card)
+   - Replace any previous .services-page / .service-card rules with this block
+=========================================================================== */
+
+/* --- Base: ensure no interfering overlay and sensible fallback --- */
 html body .services-page {
-  /* try relative path first (styles.css is at project root) */
-  background-image: url('images/mojeusluge.jpg'), url('/images/mojeusluge.jpg') !important;
-  background-position: center center !important;
+  background-color: transparent !important;
   background-repeat: no-repeat !important;
+  background-position: center center !important;
   background-size: cover !important;
-  background-attachment: fixed !important; /* kept for desktop */
-  background-blend-mode: normal !important;
+  background-attachment: scroll !important;
 }
 
-/* Hide any overlay pseudo-elements that might block the background */
+/* Hide any pseudo-element overlays that could block the image */
 html body .services-page::before,
 html body .services-page::after {
   display: none !important;
   content: none !important;
 }
 
-/* --- Card sizing: make all service cards match the image area and be responsive --- */
-/* Base: ensure service cards use the same sizing box and clip overflow */
+/* --- BACKGROUNDS --- */
+/* Mobile: vertical image (height-first) */
+@media (min-width: 100px) and (max-width: 700px) {
+  html body .services-page {
+    background-image: url('/images/mojeusluge2.jpg') !important;
+    background-size: auto 100% !important;    /* force height-fit -> vertical feel */
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+  }
+}
+
+/* Desktop: horizontal / cover */
+@media (min-width: 701px) and (max-width: 2000px) {
+  html body .services-page {
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+  }
+}
+
+/* --- CARDS GRID and SIZING --- */
+/* Keep grid responsive and ensure cards stretch to same height */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Card box (shorter heights than before) */
 .services-grid .service-card {
   position: relative;
   overflow: hidden;
-  display: block;
-  text-decoration: none;
-  color: inherit;
-
-  /* fallback height (will be overridden by breakpoints below) */
-  height: 320px;
-  transition: height 260ms ease, transform 260ms ease;
   border-radius: 8px;
   box-sizing: border-box;
+  transition: transform 220ms ease, height 220ms ease;
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Make the image inside fill the card area */
+/* Image fills card */
 .services-grid .service-card .service-img,
 .services-grid .service-card img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover; /* crop to fill the box */
+  object-fit: cover;
 }
 
-/* Position service-text inside the same container; keep it readable */
+/* Bottom text bar — does not cover whole image */
 .services-grid .service-card .service-text {
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 2;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.5); /* dark translucent bar for readability */
+  color: #fff;
   display: flex;
   flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
-  padding: 18px;
-  background: rgba(255,255,255,0.9); /* desktop override will change color on big screens */
-  transition: background 260ms ease, color 260ms ease;
-  text-align: center;
+  transition: background 220ms ease, transform 220ms ease;
 }
 
-/* Hover behaviour: shrink the card slightly and lift */
+/* Make entire .service-text clickable if it contains link */
+.services-grid .service-card .service-text a { color: inherit; text-decoration: none; }
+
+/* Hover: lift card slightly and make it a bit shorter for the "shorten on hover" effect */
 .services-grid .service-card:hover {
   transform: translateY(-6px);
 }
 
-/* On hover make them a little shorter (visual effect) */
+/* ===== Breakpoints: smaller heights for each device group ===== */
+/* Desktop / large (>= 700px) */
 @media (min-width: 700px) {
-  /* Desktop / tablet (>=700px) */
   .services-grid .service-card {
-    height: 360px;
+    height: 300px; /* shorter desktop cards */
   }
   .services-grid .service-card:hover {
-    height: 320px;
+    height: 270px;
   }
-
-  /* Desktop: white text over the background image */
-  .services-page h2,
-  .services-page .service-text,
-  .services-page .service-card .service-text h3,
-  .services-page .service-card .service-text p {
-    color: #fff !important;
-  }
-
-  /* Make the text container more transparent on desktop so the background image shows */
+  /* Slightly stronger dark bar on desktop */
   .services-grid .service-card .service-text {
-    background: rgba(0,0,0,0.45) !important;
+    background: rgba(0,0,0,0.55) !important;
   }
 }
 
+/* Tablet / medium (480px–699px) */
 @media (min-width: 480px) and (max-width: 699px) {
-  /* Medium phones / small tablets */
   .services-grid .service-card {
-    height: 300px;
-  }
-  .services-grid .service-card:hover {
     height: 260px;
   }
-
-  /* On these sizes prefer dark text for the vertical mobile image (if needed) */
-  .services-page h2,
-  .services-page .service-text,
-  .services-page .service-card .service-text h3,
-  .services-page .service-card .service-text p {
-    color: #000 !important;
+  .services-grid .service-card:hover {
+    height: 230px;
   }
-
   .services-grid .service-card .service-text {
-    background: rgba(255,255,255,0.9) !important;
+    background: rgba(0,0,0,0.5) !important;
   }
 }
 
+/* Small phones (<= 479px) */
 @media (max-width: 479px) {
-  /* Small phones */
   .services-grid .service-card {
-    height: 260px;
-  }
-  .services-grid .service-card:hover {
     height: 220px;
   }
-
-  .services-page h2,
-  .services-page .service-text,
-  .services-page .service-card .service-text h3,
-  .services-page .service-card .service-text p {
-    color: #000 !important;
+  .services-grid .service-card:hover {
+    height: 200px;
   }
-
   .services-grid .service-card .service-text {
-    background: rgba(255,255,255,0.95) !important;
+    background: rgba(0,0,0,0.45) !important;
+    color: #fff !important;
+    padding: 8px 12px;
   }
 }
 
-/* Ensure all cards have same visual box when using flex/grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  align-items: stretch;
-}
-
-/* Make sure links inside are clickable and cover whole card */
-.services-grid .service-card > .service-text,
-.services-grid .service-card > .service-img {
-  width: 100%;
-  height: 100%;
-}
-
-/* Accessibility: keep focus visible */
+/* Accessibility: focus state */
 .services-grid .service-card:focus {
   outline: 3px solid rgba(101,67,33,0.6);
   outline-offset: 3px;
 }
 
-/* Small tweak: reduce image parallax issues on desktop where fixed backgrounds cause problems */
-@supports ((background-attachment: fixed)) {
-  @media (max-width: 1024px) {
-    .services-page {
-      background-attachment: scroll !important;
-    }
-  }
-}
-
-/* ===== Ensure "Moje usluge" (services) heading is white at all sizes (both SRB & ENG) =====
-   Append this to the end of styles.css (after all other rules) so it overrides earlier rules.
-*/
-.services-page h2,
-html[lang="en"] .services-page h2,
-html[lang="sr"] .services-page h2 {
-  color: #ffffff !important; 
-}
-
-/* Also make any anchor inside the heading white */
-.services-page h2 a,
-.services-page h2 a * {
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
-
-
-/* ===== Services background only (both SRB & ENG) =====
-   - Mobile: /images/mojeusluge2.jpg for 100px — 700px (vertical fit)
-   - Desktop: /images/mojeusluge.jpg for 701px — 2000px (cover)
-   This snippet only touches backgrounds and hides potential overlay pseudo-elements.
-   Append this block to the end of styles.css (remove any older conflicting services rules first).
-*/
-
-@media (min-width: 100px) and (max-width: 700px) {
-  .services-page {
-    background-image: url('/images/mojeusluge2.jpg') !important;
-    background-size: auto 100% !important;    /* height-first -> vertical appearance */
-    background-position: center top !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-    background-blend-mode: normal !important;
-  }
-
-  /* Hide any overlay pseudo-elements that might cover the background */
-  .services-page::before,
-  .services-page::after {
-    display: none !important;
-    content: none !important;
-  }
-}
-
-@media (min-width: 701px) and (max-width: 2000px) {
-  .services-page {
-    background-image: url('/images/mojeusluge.jpg') !important;
-    background-size: cover !important;        /* horizontal / cover */
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
-    background-blend-mode: normal !important;
-  }
-
-  .services-page::before,
-  .services-page::after {
-    display: none !important;
-    content: none !important;
-  }
+/* Ensure .service-img and .service-text span whole card area for consistent layout */
+.services-grid .service-card > .service-img,
+.services-grid .service-card > .service-text {
+  width: 100%;
+  height: auto;
 }
