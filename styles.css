@@ -3105,3 +3105,121 @@ slider-btn.next {
     margin: 10px 30px;
   }
 }
+
+/* ========== EMERGENCY OVERRIDES - ONLY (navbar, works, trivia) ========== */
+/* Do not use as permanent stylesheet — this forces visibility while we debug. */
+
+html, body { visibility: visible !important; }
+
+/* NAVBAR: ensure visible, clickable and above everything */
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 90px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: rgba(255,255,255,0.98) !important;
+  z-index: 99999 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Logo and links */
+.navbar .logo img,
+.mobile-menu-logo img { display: block !important; height: auto !important; max-height: 110px !important; width: auto !important; }
+.navbar .nav-links { display: flex !important; gap: 20px !important; align-items: center !important; }
+.hamburger-menu-toggle { display: flex !important; z-index: 100000 !important; }
+
+/* Ensure mobile menu is not permanently stuck visible off-canvas */
+.mobile-menu { transform: translateX(-100%) !important; display: none !important; }
+
+/* WORKS / MOJI RADOVI: heading visible and grid restored */
+.works-page {
+  position: relative !important;
+  z-index: 2 !important;
+  padding: 90px 8% 140px !important;
+  background: #fff !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.works-page h2 {
+  display: block !important;
+  color: #000 !important;
+  font-size: 60px !important;
+  text-align: center !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Restore grid and card sizes */
+.works-page .work-grid,
+.work-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 40px !important;
+  align-items: stretch !important;
+}
+
+.work-card {
+  height: 400px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+}
+
+/* Ensure images inside cards behave */
+.work-card img {
+  width: 100% !important;
+  height: calc(100% - 80px) !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* TRIVIA ARROWS: force visible & clickable */
+#triviaPrev, #triviaNext, .trivia-nav-btn {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 99999 !important;
+}
+
+/* specific positions */
+#triviaPrev { left: 8px !important; }
+#triviaNext { right: 8px !important; }
+
+/* FIRST HERO: ensure video sits behind, not covering page */
+.first-hero, .first-hero .hero-container, .first-hero .hero-text {
+  position: relative !important;
+  z-index: 2 !important;
+}
+.first-hero .hero-background-video,
+.hero-background-video,
+video.hero-background-video {
+  z-index: 0 !important;
+  pointer-events: none !important;
+  opacity: 1 !important;
+}
+
+/* Quick safety: ensure hidden elements are not display:none accidentally */
+.navbar, .works-page, .services-page, .cr7-hover-strip {
+  display: block !important;
+}
+
+/* Small responsive safety to avoid broken layout on mobile */
+@media (max-width: 768px) {
+  .navbar .nav-links { display: none !important; }
+  .hamburger-menu-toggle { display: flex !important; }
+  .mobile-menu { display: block !important; transform: translateX(-100%) !important; }
+  .works-page .work-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
