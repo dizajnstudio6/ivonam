@@ -199,3 +199,121 @@ if (hamburgerToggle && mobileMenu) {
     }
   });
 }
+
+(function(){
+  const css = `
+  /* STRONG OVERRIDE: Restore original MOJE USLUGE visuals (high specificity & !important) */
+  html body .services-page {
+    padding: 90px 8% 140px !important;
+    position: relative !important;
+    background: url('../images/mojeusluge.jpg') center/cover no-repeat !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+  }
+  html body .services-page h2 {
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 56px !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+    color: #fff !important;
+  }
+  html body .services-page .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin: 0 auto !important;
+    max-width: 1400px !important;
+  }
+  html body .services-page .services-grid .service-card {
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    transition: transform .4s ease, background .4s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+    min-height: 180px !important;
+    height: 300px !important; /* keep original desktop height */
+    background: #fff !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+  }
+  html body .services-page .services-grid .service-card .service-text {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2 !important;
+    transition: opacity 0.4s ease !important;
+    background: rgba(255,255,255,0.92) !important;
+    padding: 30px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  html body .services-page .services-grid .service-card h3 {
+    font-size: 20px !important;
+    margin: 0 0 10px 0 !important;
+    color: #000 !important;
+  }
+  html body .services-page .services-grid .service-card p {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    color: #000 !important;
+  }
+  html body .services-page .services-grid .service-card .service-img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    transition: opacity 0.4s ease !important;
+  }
+  html body .services-page .services-grid .service-card .service-img img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  html body .services-page .services-grid .service-card:hover {
+    transform: translateY(-10px) !important;
+  }
+  html body .services-page .services-grid .service-card:hover .service-text {
+    opacity: 0 !important;
+  }
+  html body .services-page .services-grid .service-card:hover .service-img {
+    opacity: 1 !important;
+  }
+  /* Responsive (keep original responsive breakpoints) */
+  @media (max-width: 1024px) {
+    html body .services-page .services-grid { grid-template-columns: repeat(3, 1fr) !important; max-width: 1100px !important; }
+    html body .services-page .services-grid .service-card { height: 280px !important; min-height: 280px !important; }
+  }
+  @media (max-width: 768px) {
+    html body .services-page .services-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 760px !important; }
+    html body .services-page .services-grid .service-card { height: 260px !important; min-height: 260px !important; }
+  }
+  @media (max-width: 480px) {
+    html body .services-page .services-grid { grid-template-columns: 1fr !important; max-width: 420px !important; gap: 16px !important; }
+    html body .services-page .services-grid .service-card { height: 220px !important; min-height: 220px !important; padding: 18px 14px !important; }
+  }
+  `;
+  let s = document.getElementById('moje-usluge-override');
+  if(s) s.remove();
+  s = document.createElement('style');
+  s.id = 'moje-usluge-override';
+  s.appendChild(document.createTextNode(css));
+  document.head.appendChild(s);
+  console.log('Original Moje usluge override injected. If this looks right, copy the CSS block into your styles.css permanently.');
+})();
+
+
