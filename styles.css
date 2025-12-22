@@ -5807,3 +5807,87 @@ html body .services-page::after {
   display: none !important;
   content: none !important;
 } 
+
+/* ===== MOJE USLUGE: restore original card sizes + text styling only =====
+   Paste this at the end of your styles.css (or replace existing .service-card / .service-text rules).
+   This touches only sizing and text (font-size / padding / line-height) — nothing else.
+*/
+
+/* Desktop / large screens: original fixed card height */
+html body .services-page .services-grid .service-card {
+  height: 300px !important;
+  min-height: 300px !important;
+  max-height: 300px !important;
+  padding: 30px 20px !important;   /* restore original inner spacing */
+  box-sizing: border-box !important;
+  overflow: hidden !important;     /* keep content contained */
+}
+
+/* Tablet / medium screens */
+@media (min-width: 480px) and (max-width: 699px) {
+  html body .services-page .services-grid .service-card {
+    height: 260px !important;
+    min-height: 260px !important;
+    max-height: 260px !important;
+    padding: 24px 18px !important;
+  }
+}
+
+/* Small phones / mobile */
+@media (max-width: 479px) {
+  html body .services-page .services-grid .service-card {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    padding: 18px 14px !important;
+  }
+}
+
+/* Ensure hover does not change the card height (only visual transforms allowed elsewhere) */
+html body .services-page .services-grid .service-card:hover,
+html body .services-page .services-grid .service-card:focus {
+  height: inherit !important;
+  min-height: inherit !important;
+  max-height: inherit !important;
+}
+
+/* Restore text overlay sizing & typography to original */
+html body .services-page .services-grid .service-card .service-text {
+  position: absolute !important;   /* keep overlay behavior */
+  inset: 0 !important;
+  padding: 30px 20px !important;   /* match card padding */
+  background: rgba(255,255,255,0.92) !important;
+  color: #000 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+/* Headline + paragraph sizes as original */
+html body .services-page .services-grid .service-card h3 {
+  font-size: 20px !important;
+  margin: 0 0 10px 0 !important;
+  color: #000 !important;
+  line-height: 1.15 !important;
+}
+
+html body .services-page .services-grid .service-card p {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  color: #000 !important;
+}
+
+/* Small adjustments so long text doesn't overflow visually */
+html body .services-page .services-grid .service-card .service-text > * {
+  max-width: 100% !important;
+  word-break: break-word !important;
+}
+
+/* Accessibility: keep focus outline but do not change size */
+html body .services-page .services-grid .service-card:focus {
+  outline-offset: 3px !important;
+}
