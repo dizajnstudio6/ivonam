@@ -5290,9 +5290,9 @@ html body .services-grid .service-card .service-text {
 /* Prevent hover/height transforms from changing the enforced fixed size */
 html body .services-grid .service-card:hover,
 html body .services-grid .service-card:focus {
-  width: 70px !important;
-  height: 70px !important;
-  transform: none !important;
+  width: 10px !important;
+  height: 10px !important;
+  transform: none !important; 
   box-shadow: none !important;
 } 
 
