@@ -5764,85 +5764,28 @@ body {
 
 
 
-/* Scoped styles for the section: prefix with #about-services to avoid conflicts */
-#about-services { background: #f3f3f4; padding: 40px 0 80px; font-family: Arial, Helvetica, sans-serif; color: #222; }
-#about-services .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 20px; }
 
-/* Header */
-#about-services .hero { text-align: center; margin-bottom: 28px; }
-#about-services .title { font-size: 32px; line-height: 1.1; color: #111; margin-bottom: 10px; }
-#about-services .subtitle { font-size: 16px; color: #555; max-width: 880px; margin: 0 auto; }
 
-/* Two-column grid: main text + sidebar (fixed px width) */
-#about-services .content-grid { display: grid; grid-template-columns: 1fr 420px; gap: 28px; align-items: start; }
 
-/* Card base */
-#about-services .card { background: #fff; border-radius: 12px; box-shadow: 0 10px 26px rgba(10,10,10,0.06); padding: 22px; border: 1px solid rgba(0,0,0,0.04); }
 
-/* Text card */
-#about-services .card--text .card-title { font-size: 20px; color: #111; margin-bottom: 10px; }
-#about-services .lead { font-size: 16px; color: #333; margin-bottom: 14px; }
 
-/* Sidebar list */
-#about-services .card--list .card-title { font-size: 18px; margin-bottom: 12px; color: #111; }
-#about-services .services-list { list-style: none; display: grid; gap: 12px; padding: 0; margin: 0; }
-#about-services .services-list li { display: flex; flex-direction: column; gap: 6px; padding: 10px; border-radius: 8px; transition: background .18s ease, transform .18s ease; }
-#about-services .services-list li strong { font-size: 15px; color: #654321; } /* accent */
-#about-services .services-list li .desc { font-size: 14px; color: #666; }
+/* Simple styling for the two plain paragraphs */
+.plain-paragraph {
+  max-width: 980px;     /* readable line length */
+  margin: 0 0 18px;     /* stacked with a little space */
+  color: #222;
+  font-size: 16px;      /* base size */
+  line-height: 1.65;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-/* Hover for list items */
-#about-services .services-list li:hover { background: rgba(101,67,33,0.03); transform: translateY(-4px); }
-
-/* CTA */
-#about-services .cta { margin-top: 18px; text-align: center; }
-#about-services .btn { display: inline-block; background: #654321; color: #fff; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; }
-
-/* Responsive breakpoints (px) */
-/* Large screens */
+/* Slightly larger text on wide screens */
 @media (min-width: 1400px) {
-  #about-services .wrap { max-width: 1300px; padding: 36px 32px; }
-  #about-services .title { font-size: 38px; }
-  #about-services .content-grid { gap: 36px; grid-template-columns: 1fr 480px; }
-  #about-services .lead { font-size: 18px; }
+  .plain-paragraph { font-size: 18px; }
 }
 
-/* Desktop / small laptop */
-@media (min-width: 1024px) and (max-width: 1399px) {
-  #about-services .wrap { padding: 32px 24px; }
-  #about-services .content-grid { grid-template-columns: 1fr 420px; gap: 30px; }
-  #about-services .title { font-size: 34px; }
-}
-
-/* Tablet: stack columns (single column) */
-@media (min-width: 700px) and (max-width: 1023px) {
-  #about-services .wrap { padding: 28px 20px; }
-  #about-services .content-grid { grid-template-columns: 1fr; }
-  #about-services .card { padding: 20px; }
-  #about-services .title { font-size: 30px; }
-  #about-services .subtitle { font-size: 15px; }
-}
-
-/* Small tablets & large phones */
-@media (min-width: 480px) and (max-width: 699px) {
-  #about-services .wrap { padding: 22px 18px; }
-  #about-services .content-grid { grid-template-columns: 1fr; }
-  #about-services .title { font-size: 26px; }
-  #about-services .lead { font-size: 15px; }
-  #about-services .card { padding: 16px; border-radius: 10px; }
-}
-
-/* Mobile phones */
-@media (max-width: 479px) {
-  #about-services .wrap { padding: 18px 14px; }
-  #about-services .title { font-size: 22px; }
-  #about-services .subtitle { font-size: 14px; }
-  #about-services .lead { font-size: 15px; }
-  #about-services .card { padding: 14px; border-radius: 10px; }
-  #about-services .btn { padding: 10px 14px; font-size: 14px; }
-  #about-services .services-list li { padding: 8px; }
-}
-
-/* Accessibility: reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  #about-services * { transition: none !important; animation: none !important; }
+/* Slightly smaller on small phones */
+@media (max-width: 480px) {
+  .plain-paragraph { font-size: 15px; }
 }
