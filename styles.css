@@ -5769,23 +5769,27 @@ body {
 
 
 
-/* Simple styling for the two plain paragraphs */
-.plain-paragraph {
-  max-width: 980px;     /* readable line length */
-  margin: 0 0 18px;     /* stacked with a little space */
-  color: #222;
-  font-size: 16px;      /* base size */
-  line-height: 1.65;
-  text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
+/* ===== Tighten spacing so two paragraphs sit immediately under the heading ===== */
+#about-services .hero { margin-bottom: 6px !important; padding-bottom: 0 !important; }
+#about-services .title { margin-bottom: 4px !important; }
+#about-services .subtitle { margin-bottom: 8px !important; }
+
+/* Slightly reduce overall grid gap so columns are closer */
+#about-services .content-grid { gap: 18px !important; }
+
+/* Make the left text card use less top padding and ensure paragraphs stack neatly */
+#about-services .card--text { padding-top: 8px !important; margin-top: 0 !important; }
+#about-services .card--text .lead,
+#about-services .card--text p {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 12px !important; /* 12px spacing between the two paragraphs */
 }
 
-/* Slightly larger text on wide screens */
-@media (min-width: 1400px) {
-  .plain-paragraph { font-size: 18px; }
-}
-
-/* Slightly smaller on small phones */
-@media (max-width: 480px) {
-  .plain-paragraph { font-size: 15px; }
+/* On small screens keep same tight spacing */
+@media (max-width: 1023px) {
+  #about-services .hero { margin-bottom: 6px !important; }
+  #about-services .content-grid { gap: 14px !important; }
+  #about-services .card--text { padding-top: 10px !important; }
 }
