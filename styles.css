@@ -4030,7 +4030,7 @@ body {
 /* =================== HOME PAGE BACKGROUND FOR MOBILE =================== */
 @media (min-width: 299px) and (max-width: 780px) {
   .first-hero {
-    background-image: url('images/srpskifonpozadina.jpg');
+    background-image: url('images/srpskifonpozadina.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
