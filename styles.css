@@ -3621,3 +3621,126 @@ video.hero-background-video {
 
 /* End of appended block */
 
+/* ========== APPEND ONLY: Fix hamburger (mobile), hero backgrounds (desktop), footer (mobile) ========== */
+
+/* ---- 1) Hamburger: visible and functional on mobile, hidden on desktop (701px+) ---- */
+@media (max-width: 700px) {
+  .hamburger-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    cursor: pointer !important;
+    z-index: 110000 !important;
+    pointer-events: auto !important;
+    background: transparent !important;
+  }
+  .hamburger-menu-toggle span { background: #000 !important; height: 3px !important; }
+
+  /* Mobile menu off-canvas by default; JS should toggle `.active` on it */
+  .mobile-menu {
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translateX(-100%) !important;
+    transition: transform .28s ease !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: 109999 !important;
+    background: rgba(255,255,255,0.98) !important;
+    visibility: visible !important;
+  }
+  .mobile-menu.active { transform: translateX(0) !important; }
+
+  /* Make sure nav links hidden inline on small screens (mobile shows hamburger) */
+  .navbar .nav-links { display: none !important; }
+}
+
+/* Desktop/tablet: hide hamburger, show inline nav links */
+@media (min-width: 701px) and (max-width: 2000px) {
+  .hamburger-menu-toggle { display: none !important; }
+  .navbar .nav-links { display: flex !important; gap: 20px !important; align-items: center !important; }
+  .mobile-menu { display: none !important; transform: translateX(-100%) !important; }
+}
+
+/* ---- 2) Ensure hero background/video loads correctly on desktop (language-aware) ---- */
+/* Base rule for hero */
+.first-hero { background-repeat: no-repeat !important; background-position: center center !important; background-size: cover !important; }
+
+/* If html[lang="sr"] -> Serbian behavior */
+@media (min-width: 701px) and (max-width: 2000px) {
+  html[lang="sr"] .first-hero {
+    background-image: url('/images/srpskiim.mpr') !important;
+    background-size: cover !important;
+  }
+  /* Hide any video so image shows */
+  html[lang="sr"] .first-hero video,
+  html[lang="sr"] .first-hero .hero-background-video { display: none !important; visibility: hidden !important; }
+}
+
+/* If html[lang="en"] -> English behavior on desktop: prefer video if present */
+@media (min-width: 701px) and (max-width: 2000px) {
+  html[lang="en"] .first-hero {
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+  html[lang="en"] .first-hero video,
+  html[lang="en"] .first-hero .hero-background-video {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Small-screen fallbacks (both languages): ensure small-screen backgrounds show */
+@media (max-width: 700px) {
+  html[lang="sr"] .first-hero { background-image: url('/images/srpskifonpozadina.jpeg') !important; background-size: cover !important; }
+  html[lang="en"] .first-hero { background-image: url('/images/engleskifonpozadina.jpeg') !important; background-size: cover !important; }
+  html[lang="sr"] .first-hero video,
+  html[lang="en"] .first-hero video,
+  .first-hero .hero-background-video { display: none !important; visibility: hidden !important; }
+}
+
+/* ---- 3) Footer on mobile: white background, black text, headings and spans black ---- */
+@media (max-width: 700px) {
+  .footer {
+    background: #fff !important;
+    padding: 20px 6% !important;
+    color: #000 !important;
+  }
+  .footer, .footer * { color: #000 !important; }
+  .footer a { color: #000 !important; text-decoration: underline !important; }
+  .footer-top h2, .footer-top p, .footer-section h4, .footer-section p, .footer span {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .footer-top h2 { font-size: 24px !important; }
+  .footer-top p { font-size: 14px !important; }
+}
+
+/* ---- 4) Ensure Moji projekti and Dizajn studio are 1-per-row on mobile ---- */
+@media (max-width: 700px) {
+  .works-page .work-grid, .work-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .work-card { width: 100% !important; max-width: 100% !important; height: auto !important; min-height: auto !important; display: block !important; }
+
+  .studio-gallery { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .studio-item { width: 100% !important; max-width: 100% !important; height: auto !important; min-height: 260px !important; display: block !important; }
+}
+
+/* ---- 5) Safety: ensure hamburger click area and mobile menu stacking ---- */
+.hamburger-menu-toggle { z-index: 110000 !important; pointer-events: auto !important; }
+.mobile-menu, .mobile-menu.active { z-index: 109999 !important; }
+
+/* End of appended fixes */
+
+
