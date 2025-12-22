@@ -5210,6 +5210,89 @@ html body .services-grid .service-card .service-img {
 html body .services-grid .service-card:focus {
   outline: 3px solid rgba(0,0,0,0.08) !important;
   outline-offset: 2px !important;
-} 
+}  
 
+
+/* ===== Force all service-card containers and their images to a uniform 70x70 size =====
+   - Minimal override appended to the end of styles.css
+   - Applies to both Serbian and English pages; does not change other rules
+*/
+
+html body .services-grid {
+  /* allow small fixed-size items to layout properly in the grid */
+  grid-auto-columns: 70px !important;
+  grid-auto-rows: 70px !important;
+}
+
+html body .services-grid .service-card {
+  width: 70px !important;
+  min-width: 70px !important;
+  max-width: 70px !important;
+  height: 70px !important;
+  min-height: 70px !important;
+  max-height: 70px !important;
+  padding: 0 !important;                 /* remove extra padding so content fits */
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff !important;        /* keep plain white container */
+  border-radius: 4px !important;
+}
+
+/* Ensure any inner wrapper fills the card and centers text */
+html body .services-grid .service-card > * {
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+/* Make text centered and constrained inside the 70x70 box */
+html body .services-grid .service-card .service-text {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 6px !important;
+  line-height: 1 !important;
+  font-size: 12px !important;
+  color: #000 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Force images to exactly fill the 70x70 box (cover) */
+html body .services-grid .service-card .service-img,
+html body .services-grid .service-card img,
+html body .services-grid .service-card picture {
+  display: block !important;
+  width: 70px !important;
+  height: 70px !important;
+  min-width: 70px !important;
+  min-height: 70px !important;
+  object-fit: cover !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  position: absolute !important; /* keep image behind text if present */
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1 !important;
+}
+
+/* Ensure text sits above images */
+html body .services-grid .service-card .service-text {
+  z-index: 2 !important;
+  background: transparent !important;
+}
+
+/* Prevent hover/height transforms from changing the enforced fixed size */
+html body .services-grid .service-card:hover,
+html body .services-grid .service-card:focus {
+  width: 70px !important;
+  height: 70px !important;
+  transform: none !important;
+  box-shadow: none !important;
+} 
 
