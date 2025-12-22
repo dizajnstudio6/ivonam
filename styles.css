@@ -5069,4 +5069,66 @@ html body .services-page h2 * {
 }
 
 
+/* ===== Minimal override: remove images & hover effects from service cards
+   - Plain white container with text only
+   - Hides any .service-img / <img> / <picture> inside cards
+   - Disables all hover/transition/expand behaviors
+   Append to the end of styles.css
+*/
+
+html body .services-grid .service-card {
+  background: #ffffff !important;      /* plain white container */
+  color: #000 !important;              /* black text */
+  padding: 16px !important;
+  border: none !important;
+  box-shadow: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  transition: none !important;         /* disable animations */
+  transform: none !important;
+}
+
+/* Ensure text sits in normal flow and is visible */
+html body .services-grid .service-card .service-text {
+  position: relative !important;
+  z-index: 1 !important;
+  background: transparent !important;
+  color: #000 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+}
+
+/* Hide any image elements inside cards completely */
+html body .services-grid .service-card .service-img,
+html body .services-grid .service-card img,
+html body .services-grid .service-card picture {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Remove hover/focus/active effects that change size or transform */
+html body .services-grid .service-card:hover,
+html body .services-grid .service-card:focus,
+html body .services-grid .service-card:active {
+  transform: none !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure links inside remain black and readable */
+html body .services-grid .service-card a {
+  color: #000 !important;
+  text-decoration: none !important;
+}
+
+
 
