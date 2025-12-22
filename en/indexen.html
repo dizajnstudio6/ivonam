@@ -362,75 +362,119 @@ I approach every project with great dedication, a desire to learn, and continuou
 
 
 
-        
-/* PORTFOLIO HORIZONTAL SCROLL */
-.portfolio {
-  padding: 100px 0;
-  background: #fff;
-  text-align: center;
-  overflow: hidden; /* sprečava horizontalni overflow na celom delu */
-  width: 100%;
-  margin: 0;
-  box-sizing: border-box;
-}
+<!-- PROJEKTI HORIZONTAL SCROLL -->
+<section id="portfolio" class="portfolio fade-up">
+  <h2>Projekti</h2>
 
-.portfolio-scroll {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
+  <!-- PRVI RED -->
+  <div class="portfolio-scroll">
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9503.jpg" alt="Laptop Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9506.jpg" alt="Creative Work" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9507 (1).jpg" alt="Design Desk" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9508.jpg" alt="Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9560.jpg" alt="Laptop Setup" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9552.jpg" alt="Office Table" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9550.jpg" alt="Laptop Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9502.jpg" alt="Creative Work" loading="lazy">
+      <p></p>
+    </div></a>
+  </div>
 
-.portfolio-scroll a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
+  <!-- DRUGI RED -->
+  <div class="portfolio-scroll">
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9516.jpg" alt="Design Desk" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9518.jpg" alt="Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9519.jpg" alt="Laptop Setup" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9520.jpg" alt="Office Table" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9509.jpg" alt="Laptop Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9512.jpg" alt="Creative Work" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9513.jpg" alt="Design Desk" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9515.jpg" alt="Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+  </div>
 
-.portfolio-item {
-  flex: 0 0 auto;
-  width: 300px;       /* fiksna širina */
-  height: 200px;      /* fiksna visina */
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.4s;
-  background: #f9f9f9;
-}
+  <!-- TREĆI RED -->
+  <div class="portfolio-scroll">
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9542.jpg" alt="Laptop Setup" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9539.jpg" alt="Office Table" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9528.jpg" alt="Laptop Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9548.jpg" alt="Creative Work" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9525.jpg" alt="Design Desk" loading="lazy">
+      <p>Projekt 21</p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9527.jpg" alt="Workspace" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9526.jpg" alt="Laptop Setup" loading="lazy">
+      <p></p>
+    </div></a>
+    <a href="gallery.html"><div class="portfolio-item">
+      <img src="images/IMG_9532.jpg" alt="Office Table" loading="lazy">
+      <p></p>
+    </div></a>
+  </div>
 
-.portfolio-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s;
-  border-radius: 12px;
-}
-
-.portfolio-item:hover img {
-  transform: scale(1.05) translateY(-5px);
-}
-
-.portfolio-item p {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-weight: 600;
-  color: #fff;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-}
-
-/* OVDE JE VAŽNO */
-body {
-  overflow-x: hidden; /* sprečava horizontalni scrollbar na celom body-ju */
-}
-
-
-        
+</section>
 
         
   <!-- ================= CONTACT ================= --> 
@@ -512,6 +556,7 @@ body {
      
 </body>
 </html>
+
 
 
 
