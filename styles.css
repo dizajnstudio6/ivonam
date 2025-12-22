@@ -3460,7 +3460,164 @@ video.hero-background-video {
   .services-grid { grid-template-columns: 1fr !important; }
 }
 
-/* End of appended emergency fixes block */
+/* End of appended emergency fixes block */ 
 
 
+/* ===== NAVBAR: restore original desktop behavior (hide hamburger 701px–2000px) =====
+   Append this at the end of styles.css — ONLY this block.
+*/
+
+/* Ensure default mobile behavior remains: hamburger visible on small screens */
+@media (max-width: 700px) {
+  .hamburger-menu-toggle { display: flex !important; }
+  .navbar .nav-links { display: none !important; } /* keep mobile links hidden */
+}
+
+/* Desktop / tablet: show full nav, hide hamburger */
+@media (min-width: 701px) and (max-width: 2000px) {
+  .hamburger-menu-toggle { display: none !important; }         /* hide hamburger */
+  .navbar .nav-links { display: flex !important; }              /* show inline nav links */
+  .navbar .nav-links { gap: 20px !important; align-items: center !important; } 
+  .mobile-menu { display: none !important; transform: translateX(-100%) !important; } /* keep mobile off-canvas */
+}
+
+/* Safety: for very large desktops ensure same behavior */
+@media (min-width: 2001px) {
+  .hamburger-menu-toggle { display: none !important; }
+  .navbar .nav-links { display: flex !important; }
+  .mobile-menu { display: none !important; transform: translateX(-100%) !important; }
+}
+
+/* ======================
+   APPEND ONLY: Place logo/nav/hamburger into navbar area + mobile grid fixes
+   Paste at the END of styles.css and hard-refresh.
+   This only adjusts positioning/visibility/layout — nothing else.
+   ====================== */
+
+/* 1) Ensure navbar is the top-level container and children appear inside it visually */
+.navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 90px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0 20px !important;
+  z-index: 99999 !important;
+  background: rgba(255,255,255,0.98) !important;
+}
+
+/* 1a) If logo/nav/hamburger are already children of .navbar, keep them laid out normally */
+.navbar > .logo,
+.navbar .logo,
+.navbar > .nav-links,
+.navbar .nav-links,
+.navbar > .hamburger-menu-toggle,
+.navbar .hamburger-menu-toggle {
+  position: relative !important;
+  z-index: 100000 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 1b) If logo exists elsewhere in DOM (not inside .navbar), visually place it in the navbar area */
+.logo:not(.navbar .logo) {
+  position: fixed !important;
+  top: 12px !important;
+  left: 22px !important;
+  z-index: 100001 !important;
+  height: 66px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+/* 1c) If nav-links exist outside .navbar, visually place them to the right area of the navbar */
+.nav-links:not(.navbar .nav-links),
+.nav-links:not(.navbar) {
+  position: fixed !important;
+  top: 0 !important;
+  right: 140px !important; /* leaves room for hamburger on the right */
+  height: 90px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+  z-index: 100001 !important;
+}
+
+/* 1d) If hamburger exists outside .navbar, put it on the right of the navbar area */
+.hamburger-menu-toggle:not(.navbar .hamburger-menu-toggle),
+.hamburger-menu-toggle:not(.navbar) {
+  position: fixed !important;
+  top: 18px !important;
+  right: 18px !important;
+  z-index: 100002 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 2) Desktop / tablet behavior: hide hamburger and show full nav between 701px—2000px */
+@media (min-width: 701px) and (max-width: 2000px) {
+  .hamburger-menu-toggle { display: none !important; }
+  .navbar .nav-links, .nav-links:not(.navbar) { display: flex !important; }
+  .mobile-menu { display: none !important; transform: translateX(-100%) !important; }
+}
+
+/* 3) Mobile behavior: show hamburger, hide inline nav links */
+@media (max-width: 700px) {
+  .hamburger-menu-toggle { display: flex !important; }
+  .navbar .nav-links { display: none !important; }
+  .nav-links:not(.navbar) { display: none !important; } /* hide floated nav-links on mobile if present */
+  /* if logo was fixed, reduce size on small screens */
+  .logo:not(.navbar .logo) { top: 10px !important; left: 14px !important; height: 56px !important; }
+}
+
+/* 4) Make "Moji projekti" / works grid single column on mobile */
+@media (max-width: 700px) {
+  .works-page .work-grid,
+  .work-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .works-page .work-card,
+  .work-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    display: block !important;
+  }
+}
+
+/* 5) Make "Dizajn studio" gallery single column on mobile */
+@media (max-width: 700px) {
+  .studio-gallery,
+  .studio-page .studio-gallery {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .studio-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 280px !important;
+    display: block !important;
+  }
+}
+
+/* 6) Small safety: ensure logo clickable and nav-links highest z-index inside navbar */
+.navbar .logo img,
+.logo img {
+  pointer-events: auto !important;
+  max-height: 110px !important;
+  height: auto !important;
+}
+
+.navbar .nav-links a,
+.nav-links a {
+  pointer-events: auto !important;
+}
+
+/* End of appended block */
 
