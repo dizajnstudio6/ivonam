@@ -316,4 +316,93 @@ if (hamburgerToggle && mobileMenu) {
   console.log('Original Moje usluge override injected. If this looks right, copy the CSS block into your styles.css permanently.');
 })();
 
+(function(){
+  try{
+    // 1) Remove any previous temporary style we added
+    ['moje-usluge-override','moje-usluge-temp','moje-usluge-debug'].forEach(id=>{
+      const s = document.getElementById(id);
+      if(s) s.remove();
+    });
+    // Also remove any <style> that includes a known marker text (best-effort)
+    document.querySelectorAll('style').forEach(s=>{
+      const t = s.textContent || '';
+      if(t.includes('Original Moje usluge') || t.includes('MOJE USLUGE') || t.includes('STRONG OVERRIDE: Restore original MOJE USLUGE')) s.remove();
+    });
+
+    // 2) Inject safe, focused CSS for .services-page only (no global changes)
+    const css = `
+/* Injected: focused Moje usluge CSS override (only layout/text/hover for services) */
+html body .services-page { padding:90px 8% 140px !important; position:relative !important; background-image: url('/images/mojeusluge.jpg') !important; background-size: cover !important; background-position: center center !important; background-attachment: fixed !important; }
+html body .services-page h2 { font-size:56px !important; text-align:center !important; color:#fff !important; z-index:2 !important; margin-bottom:40px !important; }
+html body .services-page .services-grid { display:grid !important; grid-template-columns: repeat(4, 1fr) !important; gap:20px !important; align-items:stretch !important; position:relative !important; z-index:2 !important; max-width:1400px !important; margin:0 auto !important; }
+html body .services-page .services-grid .service-card { position:relative !important; overflow:hidden !important; background:#fff !important; border-radius:8px !important; border:1px solid rgba(0,0,0,0.04) !important; padding:0 !important; height:300px !important; box-sizing:border-box !important; }
+html body .services-page .services-grid .service-card .service-text { position:absolute !important; inset:0 !important; z-index:2 !important; background:rgba(255,255,255,0.92) !important; padding:30px 20px !important; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; text-align:center !important; transition:opacity .35s ease !important; }
+html body .services-page .services-grid .service-card h3 { font-size:20px !important; margin:0 0 10px 0 !important; color:#000 !important; }
+html body .services-page .services-grid .service-card p { font-size:16px !important; line-height:1.5 !important; margin:0 !important; color:#000 !important; }
+html body .services-page .services-grid .service-card .service-img { position:absolute !important; top:0 !important; left:0 !important; width:100% !important; height:100% !important; z-index:1 !important; opacity:0 !important; transition:opacity .4s ease !important; overflow:hidden !important; pointer-events:none !important; }
+html body .services-page .services-grid .service-card .service-img img { width:100% !important; height:100% !important; object-fit:cover !important; display:block !important; }
+html body .services-page .services-grid .service-card:hover { transform:translateY(-8px) !important; transition:transform 220ms ease !important; }
+html body .services-page .services-grid .service-card:hover .service-text { opacity:0 !important; }
+html body .services-page .services-grid .service-card:hover .service-img { opacity:1 !important; }
+/* Responsive fallbacks */
+@media (max-width:1024px){ html body .services-page .services-grid { grid-template-columns: repeat(3,1fr) !important; } html body .services-page .services-grid .service-card { height:280px !important; } }
+@media (max-width:768px){ html body .services-page .services-grid { grid-template-columns: repeat(2,1fr) !important; } html body .services-page .services-grid .service-card { height:260px !important; } }
+@media (max-width:480px){ html body .services-page .services-grid { grid-template-columns:1fr !important; } html body .services-page .services-grid .service-card { height:220px !important; padding:18px 14px !important; } }
+`;
+    const styleEl = document.createElement('style');
+    styleEl.id = 'moje-usluge-override';
+    styleEl.appendChild(document.createTextNode(css));
+    document.head.appendChild(styleEl);
+
+    // 3) DOM check & fix: unwrap nested .service-card elements if necessary
+    const grid = document.querySelector('.services-page .services-grid');
+    if(!grid){
+      console.error('No .services-page .services-grid found on this page. Make sure the section exists in markup.');
+      return;
+    }
+    const direct = grid.querySelectorAll(':scope > .service-card');
+    const all = grid.querySelectorAll('.service-card');
+    console.log('services-grid children — direct:', direct.length, 'total .service-card in subtree:', all.length);
+
+    if(all.length === 0){
+      console.warn('No .service-card elements found inside .services-grid.');
+    } else if(all.length > direct.length){
+      // Move nested .service-card elements to be direct children (preserve order as found)
+      const cards = Array.from(all);
+      cards.forEach(card=>{
+        if(card.parentElement !== grid){
+          grid.appendChild(card); // moves node to be direct child
+        }
+      });
+      console.log('Moved nested .service-card elements to be direct children of .services-grid.');
+    } else {
+      console.log('No nested .service-card elements detected.');
+    }
+
+    // Re-count
+    const directAfter = grid.querySelectorAll(':scope > .service-card').length;
+    console.log('After fix, direct children count:', directAfter);
+
+    // Gather some diagnostics for you to check visually
+    const first = grid.querySelector(':scope > .service-card');
+    if(first){
+      const r = first.getBoundingClientRect();
+      console.log('First card size (px) — width:', Math.round(r.width), 'height:', Math.round(r.height));
+      const cs = window.getComputedStyle(first);
+      console.log('Computed padding (top/right/bottom/left):', cs.paddingTop, cs.paddingRight, cs.paddingBottom, cs.paddingLeft);
+    }
+
+    // Copy corrected grid HTML to clipboard for you to paste permanently
+    try{
+      copy(grid.outerHTML);
+      console.log('Corrected .services-grid outerHTML copied to clipboard. Paste into your template to make permanent.');
+    }catch(e){
+      console.log('Unable to copy to clipboard automatically. Inspect grid.outerHTML manually:', grid.outerHTML.slice(0,1000)+'...');
+    }
+
+    console.log('Done — check the page now. If it still looks wrong, paste here the output logs you see above (counts/sizes), or paste the current grid.outerHTML that was copied.');
+  }catch(err){
+    console.error('Script error:', err);
+  }
+})();
 
