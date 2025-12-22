@@ -5709,3 +5709,10 @@ body {
   overflow-x: hidden; /* sprečava horizontalni scrollbar na celom body-ju */
 }
 
+
+/* SERVICES */
+.services { padding:120px 40px; text-align:center; background:#f9f9f9;}
+.services-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; justify-content:center; justify-items:center; margin-top:40px; margin-left:auto; margin-right:auto; max-width:100%;}
+.service-card{background:#fff; padding:20px; border-radius:12px; max-width:280px; transition:transform 0.4s; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.service-card:hover{transform:translateY(-10px) scale(1.03);}
+
