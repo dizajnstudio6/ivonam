@@ -4941,3 +4941,132 @@ html body .services-grid .service-card:focus {
   outline: 3px solid rgba(0,0,0,0.12) !important;
   outline-offset: 2px !important;
 }   
+
+
+
+/* ===== Make services background cover full section (no side gaps) and
+   make service-card containers longer so text fits with a little space below.
+   Minimal, targeted overrides — append to the end of styles.css.
+   - Mobile (<=699px): use /images/mojeusluge2.jpg
+   - Desktop (>=700px): use /images/mojeusluge.jpg
+   - Do NOT change other behaviors (hover etc.) except sizes & background display.
+*/
+
+/* Ensure the section can host an absolute full-bleed background */
+html body .services-page {
+  position: relative !important;
+  /* disable any previously-applied CSS background so the pseudo element is authoritative */
+  background-image: none !important;
+}
+
+/* Place background as a full-bleed layer behind section content so padding won't show page color */
+html body .services-page::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;                 /* top:0; right:0; bottom:0; left:0 */
+  z-index: 0 !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-attachment: scroll !important;
+  background-color: transparent !important;
+  pointer-events: none !important;
+}
+
+/* Make sure section content sits above the background layer */
+html body .services-page > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Mobile: 100px - 699px -> vertical mobile image */
+@media (min-width: 100px) and (max-width: 699px) {
+  html body .services-page::before {
+    background-image: url('/images/mojeusluge2.jpg') !important;
+    background-position: center top !important;
+    background-size: cover !important;   /* cover avoids side gaps while keeping center */
+  }
+}
+
+/* Desktop: 700px - 2000px -> desktop image */
+@media (min-width: 700px) and (max-width: 2000px) {
+  html body .services-page::before {
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-position: center center !important;
+    background-size: cover !important;
+  }
+}
+
+/* ===== Service cards: make all containers longer so text fits and leave small space below =====
+   - Applies across all breakpoints, keeps other styles intact.
+*/
+html body .services-grid .service-card {
+  min-height: 360px !important;        /* make cards longer so text fits */
+  padding: 18px !important;            /* comfortable padding inside white card */
+  box-sizing: border-box !important;
+  overflow: visible !important;        /* allow text flow (no clipping) */
+  background: #ffffff !important;      /* ensure card background is plain white */
+  color: #000 !important;              /* ensure text is black */
+}
+
+/* Add a little bottom spacing inside the card (space below text) */
+html body .services-grid .service-card .service-text {
+  margin-bottom: 8px !important;
+  position: relative !important;       /* ensure text remains inside the card flow */
+  z-index: 3 !important;
+}
+
+/* If any previous rules forcibly set a fixed height on hover, cancel that so cards stay same size */
+html body .services-grid .service-card:hover,
+html body .services-grid .service-card:focus,
+html body .services-grid .service-card:active {
+  min-height: 360px !important;
+  max-height: none !important;
+  height: auto !important;
+  transform: none !important;
+}
+
+/* Make sure images do not create extra vertical space by forcing card height */
+html body .services-grid .service-card img,
+html body .services-grid .service-card .service-img {
+  max-height: calc(100% - 0px) !important;
+  height: auto !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Small safety: if the section has side padding that visually crops the background,
+   ensure the pseudo-element covers the entire viewport width on narrow devices.
+   (This prevents visible brown/white gutters on some mobile browsers.) */
+@media (max-width: 700px) {
+  html body .services-page::before {
+    left: 50% !important;
+    right: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100vw !important;
+    margin-left: calc((100% - 100vw) / 2) !important;
+  }
+} 
+
+
+
+/* ===== Make "Moje usluge" / "My Services" heading white in ALL breakpoints (both SRB & ENG) =====
+   Minimal override — append this to the end of styles.css
+*/
+html body .services-page h2,
+html[lang="en"] .services-page h2,
+html[lang="sr"] .services-page h2 {
+  color: #ffffff !important;               /* force white text */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.45) !important; /* optional small shadow for readability */
+}
+
+/* Also force any inline elements inside the heading (links, spans) to be white */
+html body .services-page h2 a,
+html body .services-page h2 span,
+html body .services-page h2 * {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+
+
