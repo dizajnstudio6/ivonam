@@ -5296,3 +5296,120 @@ html body .services-grid .service-card:focus {
   box-shadow: none !important;
 } 
 
+
+/* ===== ORIGINAL MOJE USLUGE SECTION (restore original design) =====
+   Paste this at the end of styles.css OR replace the existing services section with it.
+*/
+
+.services-page {
+  padding: 90px 8% 140px;
+  position: relative;
+  background: url('../images/mojeusluge.jpg') center/cover no-repeat !important;
+  background-attachment: fixed;
+}
+
+.services-page h2 {
+  position: relative;
+  z-index: 2;
+  font-size: 56px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform .4s ease, background .4s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+  background: #fff;
+}
+
+.service-card:nth-child(1) {
+  background: #fff;
+}
+
+.service-card:nth-child(4) {
+  background: url('images/cvv.jpg') center/cover no-repeat;
+}
+
+.service-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  color: #000;
+}
+
+.service-card p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.5;
+  color: #000;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-card:nth-child(1):hover {
+  background: url('images/us.jpg') center/cover no-repeat;
+}
+
+.service-card:nth-child(4):hover {
+  background: url('images/cvv.jpg') center/cover no-repeat;
+}
+
+.service-card:hover .service-text {
+  opacity: 0;
+}
+
+.service-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.service-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-card:hover .service-img {
+  opacity: 1;
+}
+
+
+
