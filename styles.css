@@ -4287,3 +4287,56 @@ html[lang="en"] .first-hero {
   }
 } 
 
+/* ===== Fix footer-bottom span color (override inline styles) ===== */
+.footer-bottom p span,
+.footer-bottom p a span,
+.footer-bottom p span * {
+  color: #000 !important;
+}
+
+/* Attribute selector to override inline style attributes explicitly */
+.footer-bottom p span[style] {
+  color: #000 !important;
+}
+
+/* Also ensure links inside the footer-bottom are black */
+.footer-bottom p a,
+.footer-bottom p a * {
+  color: #000 !important;
+}
+
+/* ===== Services-page background (use absolute root path to avoid relative path issues) ===== */
+/* Mobile / vertical image: 100px — 700px */
+@media (min-width: 100px) and (max-width: 700px) {
+  .services-page {
+    /* absolute path from site root (safer than relative paths) */
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-size: auto 120% !important;    /* height-first -> vertical fit */
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    /* if there is an overlay element, try to hide it (some themes use ::before) */
+    background-blend-mode: normal !important;
+  }
+}
+
+/* Desktop / larger screens: 701px — 2000px -> cover (horizontal) */
+@media (min-width: 701px) and (max-width: 2000px) {
+  .services-page {
+    background-image: url('/images/mojeusluge.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-blend-mode: normal !important;
+  }
+}
+
+/* Extra: make sure heading / text remains visible on mobile */
+@media (min-width: 100px) and (max-width: 700px) {
+  .services-page h2,
+  .services-page .service-text,
+  .services-page .service-card {
+    color: #000 !important;
+  }
+} 
