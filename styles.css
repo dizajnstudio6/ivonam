@@ -244,6 +244,7 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   padding: 48px 32px;
   width: 100%;
+  overflow: visible;
 }
 
 .sec-title {
@@ -262,13 +263,13 @@ a { color: inherit; text-decoration: none; }
 /* Work */
 .work {
   background: var(--light);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
-  overflow: hidden;
+  overflow: visible;
+  padding: 48px 0;
 }
 
 .work-grid {
@@ -331,14 +332,13 @@ a { color: inherit; text-decoration: none; }
 .studio {
   background: var(--black);
   color: var(--white);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 32px 24px;
   scroll-snap-align: start;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .studio .sec-title,
@@ -470,13 +470,13 @@ a { color: inherit; text-decoration: none; }
 /* Services */
 .services {
   background: var(--light);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
-  overflow: hidden;
+  overflow: visible;
+  padding: 48px 0;
 }
 
 .services-grid {
@@ -512,18 +512,33 @@ a { color: inherit; text-decoration: none; }
   padding: 0 18px 18px;
 }
 
+.service-box h3,
+.service-box p,
+.work-cap h3,
+.work-cap p,
+.sec-title,
+.sec-sub {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.service-box,
+.work-item,
+.process-item {
+  min-width: 0;
+}
+
 /* Process */
 .process {
   background: var(--black);
   color: var(--white);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 32px 24px;
   scroll-snap-align: start;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .process .sec-title,
@@ -588,14 +603,13 @@ a { color: inherit; text-decoration: none; }
 /* About */
 .about {
   background: var(--light);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
-  overflow: hidden;
-  padding: 20px 24px;
+  overflow: visible;
+  padding: 48px 24px;
 }
 
 .about-wrap {
@@ -629,18 +643,6 @@ a { color: inherit; text-decoration: none; }
 .about-cv:hover {
   background: var(--black);
   color: var(--white);
-}
-
-.about-cv-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-}
-
-.about-cv-reserve {
-  font-size: 13px;
-  padding: 10px 16px;
 }
 
 .about-quotes h3 {
@@ -731,6 +733,13 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   color: var(--gray);
   line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+.review-name,
+.faq-item summary,
+.faq-item p {
+  overflow-wrap: break-word;
 }
 
 .review-stars {
@@ -828,13 +837,13 @@ a { color: inherit; text-decoration: none; }
 /* Contact */
 .contact {
   background: var(--light);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
-  overflow: hidden;
+  overflow: visible;
+  padding: 48px 0;
 }
 
 .contact .wrap {
@@ -1014,13 +1023,13 @@ a { color: inherit; text-decoration: none; }
 .faq {
   background: var(--black);
   color: var(--white);
-  height: calc(100vh - 88px);
   min-height: calc(100vh - 88px);
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
   padding: 80px 24px;
+  overflow: visible;
 }
 
 .faq .sec-title { color: var(--white); }
@@ -1181,7 +1190,7 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(0);
 }
 
-/* Responsive */
+/* Responsive — hamburger od 900px, navbar premali ispod */
 @media (max-width: 900px) {
   .nav-menu {
     display: none;
@@ -1197,8 +1206,9 @@ a { color: inherit; text-decoration: none; }
   .nav-menu.active { display: flex; }
   .nav-toggle { display: block; }
   .work-grid { grid-template-columns: 1fr; }
-  .about-wrap { grid-template-columns: 1fr; }
+  .work .wrap { width: 100%; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services .wrap { width: 100%; overflow: visible; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; }
   .faq-list { grid-template-columns: 1fr; }
@@ -1207,21 +1217,50 @@ a { color: inherit; text-decoration: none; }
   .studio-card { flex: 0 0 260px; height: 310px; }
 }
 
+@media (max-width: 700px) {
+  .contact .wrap { align-items: flex-start; text-align: left; }
+  .contact .sec-title { text-align: left; }
+  .contact .sec-sub { text-align: left; }
+  .contact-note { text-align: left; }
+}
+
 @media (max-width: 600px) {
-  .wrap { padding: 60px 20px; }
+  .wrap { padding: 48px 20px; }
   .nav { padding: 16px 20px; }
   .intro { padding: 100px 20px 60px; }
-  .intro-stats { flex-direction: column; gap: 24px; }
+  .intro-stats { flex-direction: row; flex-wrap: nowrap; gap: 20px; justify-content: flex-start; }
+  .intro-stat { flex: 0 0 auto; }
   .intro-btns { flex-direction: column; }
   .intro-btn { width: 100%; text-align: center; }
-  .services-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .process-grid { grid-template-columns: 1fr; }
   .studio-card { flex: 0 0 220px; height: 275px; }
-  .footer-menu ul { flex-direction: column; gap: 16px; }
+  .footer { padding: 28px 20px 20px; }
+  .footer-top { margin-bottom: 16px; }
+  .footer-top h2 { font-size: 1.4rem; margin-bottom: 8px; }
+  .footer-top p { font-size: 14px; }
+  .footer-menu { margin-bottom: 16px; }
+  .footer-menu ul { flex-direction: row; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .footer-menu a { font-size: 13px; }
+  .footer-social { margin-bottom: 16px; gap: 18px; }
+  .footer-bottom { padding-top: 16px; }
+  .footer-bottom p { font-size: 13px; }
+}
+
+@media (max-width: 500px) {
+  .services-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 430px) {
   .intro { padding: 96px 16px 48px; }
+  .intro-stats { gap: 16px; }
+  .footer { padding: 22px 16px 16px; }
+  .footer-top { margin-bottom: 12px; }
+  .footer-top h2 { font-size: 1.25rem; }
+  .footer-menu { margin-bottom: 12px; }
+  .footer-menu ul { gap: 12px; }
+  .footer-social { margin-bottom: 12px; }
+  .footer-bottom { padding-top: 12px; }
   .studio,
   .services,
   .work,
