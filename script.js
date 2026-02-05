@@ -44,6 +44,27 @@ if (studioTrack && studioPrev && studioNext) {
   });
 }
 
+// CV download — proba oba puta (images + root) za svaki slučaj
+document.querySelectorAll('.about-cv[data-fallback]').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    const primary = this.getAttribute('href');
+    const fallback = this.getAttribute('data-fallback');
+    if (!primary) return;
+    e.preventDefault();
+    const dl = (url) => {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = url.split('/').pop() || 'cv.pdf';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    };
+    dl(primary);
+    if (fallback) setTimeout(() => dl(fallback), 150);
+  });
+});
+
 // Smooth scroll — sekcija tačno ispod navigacije, cela vidljiva u okviru ekrana
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener("click", function (e) {
