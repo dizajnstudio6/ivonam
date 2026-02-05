@@ -2,567 +2,422 @@
 <html lang="sr">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio Ivona Milošević</title> 
-  <link rel="icon" type="image/x-icon" href="/images/mlogo2-removebg-preview.png"> 
-  <meta name="description" content="DIZAJN STUDIO pruža kreativna dizajnerska rešenja – logotipi, vizit-karte, brošure, flajeri, promotivni materijali, tekstovi i prezentacije. Profesionalan pristup i individualna saradnja.">
-  <meta name="keywords" content="design studio, dizajn studio, logo dizajn, vizit karte, brošure, flajeri, promotivni materijali, kreativni dizajn, brending, prezentacije, pisanje tekstova">
-  <meta name="author" content="Ivona Milošević">  
+  <title>Ivona Milošević | Dizajn Studio — Web & Graphic Design</title>
+  <link rel="icon" type="image/x-icon" href="images/mlogo2-removebg-preview.png">
+  <meta name="description" content="Ivona Milošević — Dizajn Studio. Profesionalni web dizajn, grafički dizajn, brending. Kreativna rešenja za vaš biznis.">
+  <meta name="keywords" content="Ivona Milošević, Dizajn Studio, web dizajn, grafički dizajn, brending, logo, portfolio">
+  <meta name="author" content="Ivona Milošević">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
-  <header class="navbar">
-    <div class="logo">
-      <a href="https://dizajnstudiors.com" target="_blank"><img src="images/mlogo2-removebg-preview.png" alt="Logo Ivona"></a>
-    </div>
-    <button class="hamburger-menu-toggle" id="hamburgerToggle" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-links">
-      <a href="#first-hero">Početna</a>
-      <a href="#about">O meni</a>
-      <a href="#home">Trivia</a> 
-      <a href="#works">Moji radovi</a>
-      <a href="#studio">Dizajn Studio</a>    
-      <a href="#portfolio">Projekti</a> 
-      <a href="#contact">Kontakt</a>
-      
-      <div class="lang-buttons">
-        <a href="index.html" class="lang-toggle active">SRB</a>
-        <a href="en/indexen.html" class="lang-toggle">ENG</a>
-      </div>    
-    </nav>
-    
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-logo">
-        <a href="https://dizajnstudiors.com" target="_blank"><img src="images/mlogo2-removebg-preview.png" alt="Logo Ivona"></a>
-      </div>
-      <a href="#first-hero" class="mobile-menu-link">Početna</a>
-      <a href="#about" class="mobile-menu-link">O meni</a>
-      <a href="#home" class="mobile-menu-link">Trivia</a>
-      <a href="#works" class="mobile-menu-link">Moji radovi</a>
-      <a href="#studio" class="mobile-menu-link">Dizajn Studio</a>
-      <a href="#services" class="mobile-menu-link">Moje usluge</a>
-      <a href="#contact" class="mobile-menu-link">Kontakt</a>
-      <div class="mobile-lang-buttons">
-        <a href="index.html" class="mobile-lang-toggle active">SRB</a>
-        <a href="en/indexen.html" class="mobile-lang-toggle">ENG</a>
-      </div>
-    </div>
-  </header>
+  <div id="loader"></div>
 
-  <!-- ================= PRVA HERO SEKCIJA / UVOD ================= -->
-  <section class="first-hero" id="first-hero">
-    <!-- Background Video -->
-    <video autoplay muted loop playsinline class="hero-background-video" onerror="this.style.display='none'; document.getElementById('video-fallback').style.display='block';">
-      <source src="videos/srpskiim.mp4" type="video/mp4">
-    </video>
-    <!-- Fallback Text if video doesn't load -->
-    <div id="video-fallback" class="video-fallback-text">Portfolio - Ivona Milošević</div>
-    <!-- Abstract Background Shapes -->
-    <div class="abstract-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-      <div class="shape shape-4"></div>
-      <div class="shape shape-5"></div>
-      <div class="shape shape-6"></div>
-    </div>
-    
-    <div class="hero-container">
-      <div class="hero-text">
-        <h1 class="portfolio-title"></h1>
-        <h2 class="name-title"></h2>
-      </div>
-    </div>
-    
-    <!-- Fun Objects -->
-    <div class="fun-objects">
-      <div class="fun-circle circle-1"></div>
-      <div class="fun-circle circle-2"></div>
-      <div class="fun-square square-1"></div>
-      <div class="fun-triangle triangle-1"></div>    
-      <div class="fun-dot dot-1"></div>
-      <div class="fun-dot dot-2"></div>
-      <div class="fun-dot dot-3"></div>
-    </div>
-  </section>
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <img src="images/mlogo2-removebg-preview.png" alt="Ivona Milošević">
+      <span>Ivona Milošević</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Meni"><span></span></button>
+    <ul class="nav-menu" id="navMenu">
+<li><a href="#intro">Početna</a></li>
+<li><a href="#work">Moji projekti</a></li>
+        <li><a href="#studio">Dizajn Studio</a></li>
+      <li><a href="#services">Usluge</a></li>
+      <li><a href="#process">Način rada</a></li>
+      <li><a href="#about">O meni</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#contact" class="nav-cta">Zatraži ponudu</a></li>
+      <li class="nav-lang"><a href="index.html" class="active">SRB</a> <a href="en/indexen.html">ENG</a></li>
+    </ul>
+  </nav>
 
-  <!-- ================= O MENI ================= -->
-  <section class="about-page" id="about">
-    <div class="page-abstract-shapes">
-      <div class="abs-shape abs-1"></div>
-      <div class="abs-shape abs-2"></div>
-      <div class="abs-shape abs-3"></div>
-      <div class="abs-shape abs-4"></div>
-      </div>
-    <h2>O meni</h2>
-    <div class="about-container">
-      <div class="about-text">
-          <p>
-            Verujem da pravi razvoj ličnosti i profesionalni put proizilaze iz raznovrsnih iskustava, radoznalosti i hrabrosti da se istraži nepoznato. Otvorenost prema novim izazovima oblikovala je moj životni i karijerni pristup: tokom srednje škole učestvovala sam u brojnim projektima koji su razvijali kreativne, intelektualne i organizacione sposobnosti. Učestvovala sam na državnim takmičenjima iz Srpskog jezika, tri puta se plasirala među najbolje tri učesnice za pisanje radova o istorijskim ličnostima i temama kreativnog izražavanja, uređivala sam školski elektronski časopis i vodila školske novosti, dok sam istovremeno razvijala veštine kroz sekcije glume i kulinarstva. Posebno se ističe projekat u okviru Menadžmenta, gde sam samostalno kreirala brošuru- turistički vodič za opštinu Despotovac, pripremila tekstove, fotografije i vizuelne materijale, što mi je donelo prvo mesto na lokalnom takmičenju i pokazalo koliko posvećenost i preciznost mogu doneti dobre rezultate. Kombinacija profesionalnog iskustva, svestranih veština, liderskih sposobnosti, komunikacione profinjenosti i otvorenosti ka novim iskustvima omogućava mi da svakom projektu pristupim sa strašću, inovativnošću i posvećenošću, ostavljajući pozitivan i trajan utisak u zajednicama u kojima delujem.
-          </p>
-          <p>
-            Iako sam u početku stidljiva i osećam nelagodnost pri javnom nastupu, iskustvo i interakcija sa ljudima omogućavaju mi da se postepeno otvaram, izražavajući ideje sa sigurnošću, jasnošću i autentičnošću.
-          </p>
+  <main>
+    <section class="intro" id="intro">
+      <div class="intro-wrap">
+        <p class="intro-role">Web & Graphic Designer</p>
+        <h1>Kreativna rešenja za vaš brend</h1>
+        <p class="intro-tag">
+          Od ideje do realizacije. Pomažem malim biznisima da izgledaju profesionalno online.<br>
+          Za više informacija i veću ponudu posetite moj drugi sajt
+          <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><u>Dizajn Studio</u></a>.
+        </p>
+        <div class="intro-stats">
+          <div class="intro-stat"><strong>40+</strong><span>Projekata</span></div>
+          <div class="intro-stat"><strong>20+</strong><span>Zadovoljnih klijenata</span></div>
+          <div class="intro-stat"><strong>1+</strong><span>Godina iskustva</span></div>
+        </div>
+        <div class="intro-btns">
+          <a href="#work" class="intro-btn">Pogledaj radove</a>
+          <a href="#contact" class="intro-btn intro-btn-outline intro-btn-accent">Zatraži ponudu</a>
         </div>
       </div>
-    <div class="about-info-cards">
-        <div class="info-card">
-          <h3></h3>
-          <div class="info-card-text">
-            <p>Dizajnom se aktivno bavim već dva meseca, a u tom periodu sam osnovala sopstveni studio i započela samostalni rad. Iako je početak bio kratak, interesovanje i potražnja za mojim uslugama brzo su se pokazali, što mi je dalo dodatnu sigurnost i motivaciju da nastavim da gradim svoj profesionalni put.
+    </section>
 
-Svakom projektu pristupam sa velikom posvećenošću, željom za učenjem i stalnim unapređivanjem znanja. Verujem u kvalitetan rad, jasnu komunikaciju i odgovornost, i upravo su to vrednosti na kojima gradim svoj studio i dugoročne saradnje.</p>
+    <section class="work" id="work">
+      <div class="wrap">
+        <h2 class="sec-title">Moji projekti</h2>
+        <p class="sec-sub">Web sajtovi rađeni za klijente po njihovom željenom stilu. Responzivni dizajn, prilagođen brendu.</p>
+        <div class="work-grid">
+          <a href="https://nailsbydaca.com" target="_blank" class="work-item">
+            <div class="work-img"><img src="images/nailss.png" alt="Nails By Daca"></div>
+            <div class="work-cap">
+              <h3>Sajt za Nails By Daca</h3>
+              <p>Sajt je radjen minimalistički i po želji klijenta.</p>
+              <span class="work-link">Poseti sajt →</span>
+            </div>
+          </a>
+          <a href="https://dizajnstudiors.com" target="_blank" class="work-item">
+            <div class="work-img"><img src="images/dsim.png" alt="Dizajn Studio"></div>
+            <div class="work-cap">
+              <h3>Moj Sajt Dizajn Studio</h3>
+              <p>Pogledajte više o meni ovde.</p>
+              <span class="work-link">Poseti sajt →</span>
+            </div>
+          </a>
+          <a href="https://ledneonnatpisisvilajnac.com" target="_blank" class="work-item">
+            <div class="work-img"><img src="images/ledim.png" alt="Led Neon Natpisi"></div>
+            <div class="work-cap">
+              <h3>Sajt za Led Neon Natpisi</h3>
+              <p>Sajt je radjen po stilu same ponude.</p>
+              <span class="work-link">Poseti sajt →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="studio" id="studio">
+      <div class="wrap">
+        <h2 class="sec-title"><a href="https://dizajnstudiors.com" target="_blank">Dizajn Studio</a></h2>
+        <p class="studio-desc">Kreativni online studio koji pruža kompletnu dizajnersku podršku — od logotipa i vizuelnog identiteta do web prezentacija i promotivnih materijala. Radimo sa malim biznisima, početnicima i pojedincima koji žele da izgledaju profesionalno. <a href="https://dizajnstudiors.com" target="_blank">Poseti dizajnstudiors.com →</a></p>
+        <div class="studio-gallery">
+          <button class="studio-prev" id="studioPrev" aria-label="Prethodno">‹</button>
+          <button class="studio-next" id="studioNext" aria-label="Sledeće">›</button>
+          <div class="studio-scroll" id="studioTrack">
+            <div class="studio-card">
+              <img src="images/ds2.jpg" alt="Studio Work">
+              <div class="studio-card-text">
+                <h3>Dizajn Studio</h3>
+                <p>Dizajn Studio je kreativni online studio koji pruža širok spektar dizajnerskih usluga, sa ciljem da klijentima obezbedi kompletna, jasna i profesionalna rešenja — od ideje do finalne realizacije. Naš rad zasniva se na razumevanju potreba klijenata, preciznoj komunikaciji i pažnji posvećenoj svakom detalju.</p>
+              </div>
+            </div>
+            <div class="studio-card">
+              <img src="images/ds3.jpg" alt="Studio Work">
+              <div class="studio-card-text">
+                <h3>Vizuelni i Promotivni Materijali</h3>
+                <p>Bavimo se izradom vizuelnih i promotivnih materijala za lične i poslovne potrebe. U okviru studija izrađujemo logotipe, vizit-karte, brošure, flajere, kao i dizajne za promotivne proizvode poput upaljača, olovaka, majica, šolja i drugih brendiranih artikala. Svaki dizajn prilagođavamo nameni, ciljnoj grupi i identitetu klijenta.</p>
+              </div>
+            </div>
+            <div class="studio-card">
+              <img src="images/ds4.jpg" alt="Studio Work">
+              <div class="studio-card-text">
+                <h3>Čestitke, Pozivnice i Zahvalnice</h3>
+                <p>Pored toga, izrađujemo čestitke, pozivnice i zahvalnice za različite prilike — poslovne događaje, lične proslave i posebne trenutke — sa fokusom na stil, ton i vizuelni sklad. Cilj nam je da svaki materijal izgleda promišljeno, uredno i profesionalno.</p>
+              </div>
+            </div>
+            <div class="studio-card">
+              <img src="images/ds12.jpg" alt="Studio Work">
+              <div class="studio-card-text">
+                <h3>Pisanje Tekstova i Prezentacije</h3>
+                <p>Dizajn Studio se bavi i pisanjem tekstova, uključujući promotivne sadržaje, govore, tematske tekstove i druge pisane forme. Takođe, izrađujemo prezentacije koje su jasno strukturisane, vizuelno čiste i prilagođene profesionalnom okruženju — bilo da su namenjene poslovnim sastancima, klijentima ili javnim nastupima.</p>
+              </div>
+            </div>
+            <div class="studio-card">
+              <img src="images/ds9.jpg" alt="Studio Work">
+              <div class="studio-card-text">
+                <h3>Saradnja</h3>
+                <p>Sarađujemo sa pojedincima, malim i srednjim preduzećima, preduzetnicima i kreativnim projektima koji žele pouzdanog partnera za realizaciju različitih ideja na jednom mestu. Fleksibilnost, organizovan pristup i mogućnost da obuhvatimo više oblasti rada čine nas studiom koji nudi više od jednog rešenja.</p>
+              </div>
+            </div>
+            <a href="https://dizajnstudiors.com" target="_blank" class="studio-card studio-link">
+              <img src="images/ds11.jpg" alt="Studio Work">
+              <div class="studio-card-text">
+                <h3>Sajt</h3>
+                <p>Na sajtu dizajnstudiors.com možete pogledati naše radove, upoznati se sa kompletnom ponudom usluga i steći jasniji uvid u način na koji radimo. Pozivamo vas da istražite naš portfolio i saznate kako Dizajn Studio može doprineti vašem projektu kroz promišljen dizajn, jasan sadržaj i profesionalan pristup.</p>
+              </div>
+            </a>
           </div>
         </div>
-        <div class="info-card">
-          <h3>Radno iskustvo</h3>
-          <div class="info-card-text">
-            <p>Moj profesionalni put odražava istu strast i radoznalost. Kao Turistički vodič u Resavskoj pećini, vodila sam grupe preko 2.000 posetilaca tokom prazničnih perioda, kreirala promotivne materijale, pisala tekstove o pećini, oblikovala brošure i vodila društvene mreže, kao i sam sadržaj, te aktivno upravljala prodajom ulaznica. Moja želja da istražujem nove oblasti navela me je da se upustim u svet ukusa – kao Bartender eksperimentisala sam sa tehnikama pripreme koktela i razvijala inovativne ukuse, 
-              dok nisam otkrila latte art i započela posao kao Barista, to mi je pomoglo da unapredim preciznost, estetskiu i interakciju sa posetiocima. Paralelno, kroz rad u svom Dizajn studiju, usavršavala sam sposobnost vođenja projekata, razvijanja kreativnih koncepata i realizacije originalnih ideja, kao i samostalno učila da kodiram web sajtove.</p>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="wrap">
+        <h2 class="sec-title">Usluge</h2>
+        <p class="sec-sub">Kompletan spektar dizajnerskih usluga — od prvog kontakta do finalne isporuke. Prilagođavam se vašim potrebama i budžetu.</p>
+        <div class="services-grid">
+          <div class="service-box">
+            <h3>Web dizajn</h3>
+            <p>Animirani, moderni i responsive sajtovi prilagođeni svim uređajima.</p>
           </div>
-        </div> 
-        <div class="info-card">
-          <h3>Moj cilj</h3>
-          <div class="info-card-text">
-            <p>Moj krajnji cilj odražava uverenje da znanje i resursi treba da budu dostupni svima: želim da stvorim selo u kom će svi beskućnici moći živeti dostojanstveno i besplatno se hraniti svake nedelje, kao i da delujem kroz obrazovne inicijative – da obezbedim besplatne knjige deci samohranih majki i da finansiram njihovo školovanje, pružajući priliku za rast i razvoj onima kojima je pomoć najpotrebnija.</p>
+          <div class="service-box">
+            <h3>Branding</h3>
+            <p>Logo, paleta boja i kompletan vizuelni identitet za vaš brend.</p>
+          </div>
+          <div class="service-box">
+            <h3>Personalizovane pozivnice</h3>
+            <p>Kreiramo elegantne i personalizovane pozivnice za sve vrste događaja.</p>
+          </div>
+          <div class="service-box">
+            <h3>Izrada CV i portfolia</h3>
+            <p>Izrađujemo CV/Portfolio koji ističe vaše veštine i iskustvo.</p>
+          </div>
+          <div class="service-box">
+            <h3>Dizajniranje jelovnika</h3>
+            <p>Dizajniramo vizuelno privlačne menije i jelovnike za restorane i kafiće.</p>
+          </div>
+          <div class="service-box">
+            <h3>Prezentacije</h3>
+            <p>Pravimo uredne prezentacije prilagođene poslovnim, školskim i promotivnim potrebama.</p>
+          </div>
+          <div class="service-box">
+            <h3>Vizit karte</h3>
+            <p>Kreiramo vizit karte koje ističu identitet vašeg brenda i ostavljaju snažan prvi utisak.</p>
+          </div>
+          <div class="service-box">
+            <h3>Marketing</h3>
+            <p>Digitalni marketing i strategije za veći online uticaj.</p>
           </div>
         </div>
-        <div class="info-card">
-          <h3>Obrazovanje</h3>
-          <div class="info-card-text">
-            <p>Obrazovno sam završila srednju Tehničku školu u Despotovcu, smer Turističko- hotelijerski tehničar, a na prijemnom ispitu za Oxford (Filološko Engleski program) bila sam među top tri kandidatkinje sa 90 poena. Iako nisam nastavila formalno fakultetsko obrazovanje, odlučila sam da se razvijam kroz praktična iskustva i samostalno stvaralaštvo, sa jasnom vizijom da kreiram projekte koji reflektuju vrednosti, kreativnost i profesionalnu autonomiju.</p>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="wrap">
+        <h2 class="sec-title">Način rada</h2>
+        <p class="sec-sub">Jasna struktura od prvog kontakta do finalne isporuke</p>
+        <div class="process-grid">
+          <div class="process-item">
+            <span class="process-num">1</span>
+            <h3>Brief</h3>
+            <p>Razgovor o vašim potrebama, ciljevima i viziji. Razumevanje brenda i ciljne grupe.</p>
           </div>
-      </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= HOME / CR7 SLIKA ================= -->
-<section class="cr7-hover-strip" id="home">
-  <div class="page-abstract-shapes">
-    <div class="abs-shape abs-5"></div>
-    <div class="abs-shape abs-6"></div>
-    <div class="abs-shape abs-7"></div>
-    <div class="abs-shape abs-8"></div>
-  </div>
-
-  <h2>Trivia - Sve o meni</h2> 
-  <p style="text-align: center; margin-bottom: 60px; font-size: 18px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6; color: #000;">
-    Svestranost i istraživački duh su suština mog identiteta. Fotografija, crtanje, pisanje, kulinarstvo, manikir, tetoviranje i samostalno bušenje pirsinga deo su mog izraza i poslova u kojima sam se takodje istražila, kroz koje razvijam preciznost, strpljenje i inovativno razmišljanje. Posebnu pažnju posvećujem proučavanju različitih kultura i tradicija, čitanju literature i gledanju dokumentaraca koji produbljuju razumevanje sveta, običaja i vrednosti, jačajući sposobnost prilagođavanja i uspešnog delovanja u multikulturalnim okruženjima. Pored Srpskog i Engleskog jezika, otpočela sam kurs učenja osnovnog Koreanskog jezika, ali nisam nastavila zbog posla vodiča i vremena, želja mi je bila da proširim komunikacione horizonte.
-  </p>
-
-  <div class="trivia-slider-wrapper">
-    <!-- LEVA I DESNA STRELICA -->
-    <button id="triviaPrev">‹</button>
-    <button id="triviaNext">›</button>
-
-    <!-- TRACK SA SLIKAMA -->
-    <div class="strip-track" id="triviaStripTrack">  
-      <div class="strip-img">
-        <img src="images/manastiri.jpg">
-        <div class="img-text">
-          <h3>MANASTIRI</h3>
-          <p>Volim da obilazim manastire, lokalne crkve i manastirske vidikovce – u okviru samih manastira koja pružaju mir i inspiraciju. Posećujem ih često tokom praznika ili nedeljom, uživajući u tišini.</p>
+          <div class="process-item">
+            <span class="process-num">2</span>
+            <h3>Dizajn</h3>
+            <p>Kreacija koncepta i prvih predloga. Prilagođavam se vašim povratnim informacijama.</p>
+          </div>
+          <div class="process-item">
+            <span class="process-num">3</span>
+            <h3>Revizije</h3>
+            <p>Do dve besplatne revizije. Podešavanja dok ne bude savršeno.</p>
+          </div>
+          <div class="process-item">
+            <span class="process-num">4</span>
+            <h3>Isporuka</h3>
+            <p>Finalna verzija, svi fajlovi i materijali. Podrška nakon predaje.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="strip-img">
-        <img src="images/mont.jpeg">
-        <div class="img-text">
-          <h3>PLANINARENJE</h3>
-          <p>Volim planinarenje i obilazak vidikovaca, jer mi boravak u prirodi donosi mir i novu energiju. Svaki uspon doživljavam kao priliku da se udaljim od svakodnevice i sagledam stvari iz drugačije perspektive.</p>
+    <section class="about" id="about">
+      <div class="wrap about-wrap">
+        <div class="about-text">
+          <h2 class="sec-title">O meni</h2>
+          <p>Web i grafički dizajner sa fokusom na kreativna i funkcionalna rešenja za male biznise. Radim na projektima koji obuhvataju vizuelni identitet, brending, web prezentacije i dizajn promotivnih materijala, sa jasnim i profesionalnim vizuelnim izrazom.</p>
+          <p>Profesionalni razvoj gradim kroz raznovrsna iskustva — od školskih projekata i takmičenja iz pisanja i govorništva do rada kao turistički vodič u Resavskoj pećini, gde sam vodila grupe posetilaca i kreirala promotivne materijale i sadržaj. Ta iskustva su oblikovala moj pristup komunikaciji i razumevanju potreba različitih ciljnih grupa.</p>
+          <p>Kroz Dizajn Studio objedinjujem grafički dizajn, web tehnologije i kreiranje sadržaja kako bih klijentima pružila jasna, estetski usklađena i funkcionalna rešenja.</p>
+          <p><strong>Alati:</strong> HTML, CSS, JavaScript, WordPress, Photoshop, Illustrator, Canva, Figma, copywriting</p>
+          <div class="about-cv-wrap">
+            <a href="images/cv.pdf" download class="about-cv">Preuzmi CV</a>
+            <a href="cv.pdf" download class="about-cv about-cv-reserve">Rezervni link (ako ne radi)</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="strip-img">
-        <img src="images/mjanastir.jpeg">
-        <div class="img-text">
-          <h3>ZNAMENITOSTI</h3>
-          <p>Volim da obilazim lokalne, kulturne i prirodne znamenitosti koje ranije nisam posetila. Cilj mi je da najpre obiđem celu Srbiju, a dobar deo njenih lepota sam već imala priliku da upoznam.</p>
+    <section class="faq" id="faq">
+      <div class="wrap wrap-narrow">
+        <h2 class="sec-title">Česta pitanja</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Koliko traje realizacija projekta?</summary>
+            <p>Vizit karte: do 2 radna dana. Logo: 5–7 radnih dana. Web sajt: 2–4 nedelje u zavisnosti od obima. Konkretan rok dogovara se na početku.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Kako funkcioniše plaćanje?</summary>
+            <p>Obavezuje se depozit 50% na početku, ostalo po završetku. Za veće projekte moguće je podele na rate.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Radite li sa klijentima iz inostranstva?</summary>
+            <p>Da. Saradnja je moguća na srpskom i engleskom jeziku, putem e-maila, Vibera ili video poziva.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Šta mi treba da započnemo?</summary>
+            <p>Ideja, reference (ako imate), tekstovi i osnovne informacije o brendu. Ostalo možemo razraditi zajedno.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Da li radite hitne projekte?</summary>
+            <p>U zavisnosti od trenutnog opterećenja, moguća je brža realizacija uz doplatu. Dogovorimo se na početku.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Šta uključuje cena web sajta?</summary>
+            <p>Uobičajeno uključuje dizajn, razvoj, responzivnost, optimizaciju za pretraživače i osnovnu podršku nakon predaje. Domen i hosting se plaćaju odvojeno.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Koliko revizija je uključeno?</summary>
+            <p>Do dve besplatne revizije su standard za većinu projekata. Dodatne revizije se dogovaraju posebno.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Kako predajete finalne fajlove?</summary>
+            <p>Isporuka je putem linka za preuzimanje ili e-maila. Gotove kartice mogu biti poslate poštom ili preuzete lično, u dogovoru sa klijentom.</p>
+          </details>
         </div>
       </div>
+    </section>
 
-      <div class="strip-img">
-        <img src="images/magare.jpeg">
-        <div class="img-text">
-          <h3>ŽIVOTINJE</h3>
-          <p>Posebno volim životinje — kako domaće, tako i egzotične. Tokom vremena imala sam različite ljubimce, uključujući Vijetnamsku patuljastu svinju, krabu, morsko prase, kao i još nekoliko egzotičnih vrsta.</p>
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2 class="sec-title">Kontakt</h2>
+        <p class="sec-sub">Imate ideju ili projekat i treba vam dizajn ili web rešenje? <br> 
+          Otvorena sam za nove saradnje i trudiću se da odgovorim u roku od 24 časa.</p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5"/></svg>
+            </div>
+            <h3>Dizajn Studio</h3>
+            <p class="contact-card-desc">Kreativni studio za brending i web</p>
+            <div class="contact-card-links">
+              <a href="tel:+381628371384">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                062 / 8371-384
+              </a>
+              <a href="mailto:dizajnstudio6@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                dizajnstudio6@gmail.com
+              </a>
+              <div class="contact-socials">
+                <a href="https://www.instagram.com/dizajnstudio.rs/" target="_blank" aria-label="Instagram">@dizajnstudio.rs</a>
+                <a href="https://www.tiktok.com/@dizajn.studio" target="_blank" aria-label="TikTok">@dizajn.studio</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Ivona Milošević</h3>
+            <p class="contact-card-desc">Direktan kontakt</p>
+            <div class="contact-card-links">
+              <a href="tel:+381652092418">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                065 / 2092-418
+              </a>
+              <a href="mailto:ivonam306@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                ivonam306@gmail.com
+              </a>
+              <div class="contact-socials">
+                <a href="https://www.instagram.com/ivonamilosevicc/" target="_blank" aria-label="Instagram">@ivonamilosevicc</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="contact-note">Najbolje je nas kontaktirati putem Vibera ili e-maila — odgovaram najčešće istog dana.</p>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="wrap wrap-narrow">
+        <h2 class="sec-title">Recenzije</h2>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">ND</div>
+              <div class="review-name">Nails By Daca</div>
+            </div>
+            <div class="review-text">„Profesionalan pristup, brza komunikacija i izvanredan dizajn. Preporučujem svima.“</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">LN</div>
+              <div class="review-name">Led Neon Natpisi</div>
+            </div>
+            <div class="review-text">„Odlična saradnja od prvog kontakta do finalne realizacije. Sajt je dobio mnogo pozitivnih povratnih informacija.“</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">TT</div>
+              <div class="review-name">Tobi Torbe</div>
+            </div>
+            <div class="review-text">„Od ideje do finalnog dizajna torbi sve je bilo jasno, brzo i profesionalno. Vizuelni identitet i prezentacija brenda podignuti su na viši nivo.“</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">JL</div>
+              <div class="review-name">Jeca Lashes</div>
+            </div>
+            <div class="review-text">„Dizajn i prezentacija usluga savršeno odgovaraju estetici salona. Ivona je pažljivo slušala sve želje i pretočila ih u moderan i uredan vizuelni identitet.“</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">MS</div>
+              <div class="review-name">Moleraj Sentić</div>
+            </div>
+            <div class="review-text">„Ivona je odlično razumela našu delatnost i pretvorila je u jasan, ozbiljan i pouzdan vizuelni nastup. Saradnja je bila laka, brza i efikasna.“</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">BC</div>
+              <div class="review-name">Berbernica Cera</div>
+            </div>
+            <div class="review-text">„Moderni vizuelni identitet koji savršeno odgovara našem brendu. Dizajn vizitki, brendinga i druge grafičke predloge preporučujem svima.“</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="strip-img">
-        <img src="images/food3.jpg">
-        <div class="img-text">
-          <h3>KULINARSTVO</h3>
-          <p>Volim da istražujem lokalne ukuse i da probam tradicionalne specijalitete iz mesta koja obilazim. Svaki obrok za mene je deo kulturnog iskustva i prilika da upoznam lokalne običaje i tradiciju. Moje omiljeno jelo dolazi iz Bajine Bašte — kajmak na ražnju, u kom uvek posebno uživam.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/nature.jpg">
-        <div class="img-text">
-          <h3>PRIRODA</h3>
-          <p>Prirodu volim i verujem da je važno da je čuvamo, recikliramo i ne štetimo joj. Moje omiljeno drvo je tužna vrba, koja me podseća na školski park i abstraktnu umetnost grafita oko nje, a upravo iz te slike sinula mi je ideja za Dizajn Studio.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/moda.jpg">
-        <div class="img-text">
-          <h3>MODA</h3>
-          <p>Najviše volim modu, a posebno jesenje izdanje, jer tada mogu da kombinujem kapute, slojevite odevne komade i stilizovane kape. Jesen mi pruža savršenu priliku da eksperimentišem sa bojama, materijalima i detaljima, stvarajući outfite koji su istovremeno elegantni i udobni.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/pejzazi.jpg">
-        <div class="img-text">
-          <h3>PEJZAŽI</h3>
-          <p>Posebno volim pejzaže — uživam da ih posmatram, fotografišem, ali i da crtam. Inspiraciju često pronalazim u prirodi, kroz fotografije i pisanje tema i objava posvećenih prirodnom okruženju.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/tara.jpg">
-        <div class="img-text">
-          <h3>TARA</h3>
-          <p>Moja omiljena planina je Tara, gde zimi uživam u svakom trenutku. Obožavam što se ovde često mogu videti srne, a ljudi su uvek prijatni i gostoljubivi. Tara je prometna, ali je zadržala svoj autentičan karakter, zbog čega se svako zimovanje rado vraćam u ovaj nacionalni park.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/Resavskapecina.jpg">
-        <div class="img-text">
-          <h3>RESAVSKA PEĆINA</h3>
-          <p>Provela sam godinu dana kao turistički vodič u Resavskoj pećini, što mi je pomoglo da prevaziđem strah od javnog nastupa i smanjim tremu. Nakon toga sam radila u marketingu, kreirajući brošure za pećinu, gde sam otkrila koliko uživam u dizajnu i izradi vizuelnih materijala.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/krs.jpg">
-        <div class="img-text">
-          <h3>VELIKI KRŠ</h3>
-          <p>Nisam veliki fan letnjeg turizma, ali rado obilazim planine i leti, posebno Veliki Krš i okolinu. Takođe volim da provedem leto na Gružanskom jezeru, gde su lokalci uvek vrlo prijatni.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/bosna.jpg">
-        <div class="img-text">
-          <h3>UMETNOST</h3>
-          <p>Volim umetnička dela na platnu, jer u njima pronalazim inspiraciju i izražajnost koju reči često ne mogu da opišu. Svako platno nosi svoju priču, boje i emocije, i uživam u posmatranju svakog detalja koji oblikuje jedinstvenu umetničku viziju.</p> 
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/travel.jpg">
-        <div class="img-text">
-          <h3>PUTOVANJA</h3> 
-          <p>Putovanja su moja najveća inspiracija — volim da upoznajem nove kulture, gradove i načine života. Svako novo mesto mi donosi drugačiju perspektivu i ideje koje kasnije unosim u svoj rad.</p>
-        </div>
-      </div>
-
-      <div class="strip-img">
-        <img src="images/mostar.jpg"> 
-        <div class="img-text">
-          <h3>MOSTAR</h3>
-          <p>Moje omiljeno mesto za putovanja u blizini je Bosna, a posebno volim Mostar zbog njegove posebne atmosfere i živopisnih ulica. Uživam u njihovim uličnim rasprodajama i u lokalnim specijalitetima i kolačima koji odišu tradicionalnim ukusima. Svaka poseta je prilika da istražim kulturu i upijem šarm ovog prelepog grada.</p>
-        </div>
-      </div>
-
-    </div> <!-- Zatvoreno strip-track -->
-  </div> <!-- Zatvoreno trivia-slider-wrapper -->
-</section>
-
-
-  <!-- ================= LOADER ================= -->
-  <div id="loader">
-    <span>Loading Portfolio - Ivona Milošević</span>
-    </div>
-
-
-  <!-- ================= MOJI RADOVI ================= -->
-  <section class="works-page" id="works">
-    <div class="page-abstract-shapes">
-      <div class="abs-shape abs-13"></div>
-      <div class="abs-shape abs-14"></div>
-      <div class="abs-shape abs-15"></div>
-      <div class="abs-shape abs-16"></div>
-    </div>
-    <h2>Moji Radovi</h2>
-
-    <div class="work-grid">
-      <a href="https://nailsbydaca.com" target="_blank" class="work-card">
-        <img src="images/nailss.png">
-        <div class="work-info">
-          <p>Sajt za Nails By Daca</p>
-          <p>Sajt je radjen minimalistički i po želji klijenta</p>
-        </div>
-      </a>
-
-      <a href="https://dizajnstudiors.com" target="_blank" class="work-card">
-        <img src="images/dsim.png">
-        <div class="work-info">
-          <p>Moj Sajt Dizajn Studio</p>
-          <p>Pogledajte više o meni ovde</p>
-      </div>
-      </a>
-
-      <a href="https://ledneonnatpisisvilajnac.com" target="_blank" class="work-card">
-        <img src="images/ledim.png">
-        <div class="work-info">
-          <p>Sajt za Led Neon Natpisi</p>
-          <p>Sajt je radjen po stilu same ponude</p>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ================= DIZAJN STUDIO ================= -->
-  <section class="studio-page" id="studio">
-    <div class="page-abstract-shapes">
-      <div class="abs-shape abs-21"></div>
-      <div class="abs-shape abs-22"></div>
-      <div class="abs-shape abs-23"></div>
-      <div class="abs-shape abs-24"></div>
-    </div>
-    <h2><a href="https://dizajnstudiors.com" target="_blank" style="color: inherit; text-decoration: none;">Dizajn Studio</a>  </h2>
-    <div class="studio-gallery">
-      <div class="studio-item">
-        <img src="images/ds2.jpg" alt="Studio Work">
-        <div class="studio-item-text">
-          <h3>Dizajn Studio</h3> 
-          <p>Dizajn Studio je kreativni online studio koji pruža širok spektar dizajnerskih usluga, sa ciljem da klijentima obezbedi kompletna, jasna i profesionalna rešenja — od ideje do finalne realizacije. Naš rad zasniva se na razumevanju potreba klijenata, preciznoj komunikaciji i pažnji posvećenoj svakom detalju.</p>
-        </div>
-      </div>
-      <div class="studio-item">
-        <img src="images/ds3.jpg" alt="Studio Work">
-        <div class="studio-item-text">
-          <h3>Vizuelni i Promotivni Materijali</h3>
-          <p>Bavimo se izradom vizuelnih i promotivnih materijala za lične i poslovne potrebe. U okviru studija izrađujemo logotipe, vizit-karte, brošure, flajere, kao i dizajne za promotivne proizvode poput upaljača, olovaka, majica, šolja i drugih brendiranih artikala. Svaki dizajn prilagođavamo nameni, ciljnoj grupi i identitetu klijenta, vodeći računa o funkcionalnosti, estetici i jasnoći poruke.</p>
-        </div>
-      </div>
-      <div class="studio-item">
-        <img src="images/ds4.jpg" alt="Studio Work">
-        <div class="studio-item-text">
-          <h3>Čestitke, Pozivnice i Zahvalnice</h3>
-          <p>Pored toga, izrađujemo čestitke, pozivnice i zahvalnice za različite prilike — poslovne događaje, lične proslave i posebne trenutke — sa fokusom na stil, ton i vizuelni sklad. Cilj nam je da svaki materijal izgleda promišljeno, uredno i profesionalno.</p>
-        </div>
-      </div>
-      <div class="studio-item">
-        <img src="images/ds12.jpg" alt="Studio Work">
-        <div class="studio-item-text">
-          <h3>Pisanje Tekstova i Prezentacije</h3>
-          <p>Dizajn Studio se bavi i pisanjem tekstova, uključujući promotivne sadržaje, govore, tematske tekstove i druge pisane forme prilagođene različitim potrebama i kontekstima. Takođe, izrađujemo prezentacije koje su jasno strukturisane, vizuelno čiste i prilagođene profesionalnom okruženju — bilo da su namenjene poslovnim sastancima, klijentima ili javnim nastupima.</p>
-        </div>
-      </div>
-      <div class="studio-item">
-        <img src="images/ds9.jpg" alt="Studio Work">
-        <div class="studio-item-text">
-          <h3>Saradnja</h3>
-          <p>Sarađujemo sa pojedincima, malim i srednjim preduzećima, preduzetnicima i kreativnim projektima koji žele pouzdanog partnera za realizaciju različitih ideja na jednom mestu. Fleksibilnost, organizovan pristup i mogućnost da obuhvatimo više oblasti rada čine nas studiom koji nudi više od jednog rešenja.</p>
-        </div>
-      </div>
-      <a href="https://dizajnstudiors.com" target="_blank" class="studio-item">
-        <img src="images/ds11.jpg" alt="Studio Work">
-        <div class="studio-item-text">
-          <h3>Sajt</h3>
-          <p>Na sajtu dizajnstudiors.com možete pogledati naše radove, upoznati se sa kompletnom ponudom usluga i steći jasniji uvid u način na koji radimo. Pozivamo vas da istražite naš portfolio i saznate kako Dizajn Studio može doprineti vašem projektu kroz promišljen dizajn, jasan sadržaj i profesionalan pristup.</p>
-        </div>
-      </a>
-    </div>
-  </section>   
-  
-
-  <!-- PROJEKTI HORIZONTAL SCROLL -->
-<section id="portfolio" class="portfolio fade-up">
-  <h2>Moji projekti</h2> 
-
-  <!-- PRVI RED -->
-  <div class="portfolio-scroll">
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9499.jpg" alt="Laptop Workspace" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9518.jpg" alt="Creative Work" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9525.jpg" alt="Design Desk" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9539.jpg" alt="Workspace" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9543.jpg" alt="Laptop Setup" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9560.jpg" alt="Office Table" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9549.jpg" alt="Laptop Workspace" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9538.jpg" alt="Creative Work" loading="lazy">
-      <p></p>
-    </div></a>
-  </div>
-
-  <!-- DRUGI RED -->
-  <div class="portfolio-scroll">
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9512.jpg" alt="Design Desk" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9508.jpg" alt="Workspace" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9528.jpg" alt="Laptop Setup" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9507.jpg" alt="Office Table" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9522.jpg" alt="Laptop Workspace" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9512.jpg" alt="Creative Work" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9518.jpg" alt="Design Desk" loading="lazy">
-      <p></p>
-    </div></a>
-    <a href="https://dizajnstudiors.com" target="_blank" rel="noopener"><div class="portfolio-item">
-      <img src="images/IMG_9513.jpg" alt="Workspace" loading="lazy">
-      <p></p>
-    </div></a>
-  </div>
-  
-</section> 
-  
-  
-
-  <!-- ================= KONTAKT ================= -->
-  <section class="contact" id="contact">
-    <div class="page-abstract-shapes">
-      <div class="abs-shape abs-25"></div> 
-      <div class="abs-shape abs-26"></div>
-      <div class="abs-shape abs-27"></div>
-      <div class="abs-shape abs-28"></div>
-    </div>  
-    <h2>Kontakt</h2>
-    <p>
-      Ako imate ideju, projekat ili vam je potrebna pouzdana kreativna podrška, slobodno nas kontaktirajte. Otvoreni smo za nove saradnje, pitanja i predloge, bez obzira na obim projekta. Svakom upitu pristupamo profesionalno i sa punom pažnjom, jer verujemo da kvalitetna komunikacija predstavlja osnovu uspešne saradnje.
-    </p>  
-
-
-    
-    <div class="contact-info">
-      <div class="contact-card">
-        <img src="images/ds.PNG" alt="Dizajn Studio">
-        <div class="contact-card-text">
-          <h3>DZAJN STUDIO</h3>
-          <p>Telefon: <a href="tel:+381628371384">062/ 8371-384</a></p>
-          <p>Instagram: <a href="https://www.instagram.com/dizajnstudio.rs/" target="_blank">@dizajnstudio.rs</a></p>
-          <p>TikTok: <a href="https://www.tiktok.com/@dizajn.studio" target="_blank">@dizajn.studio</a></p>
-        </div>
-      </div>
-      
-      <div class="contact-card">
-        <img src="images/mlogo2-removebg-preview.png" alt="Ivona Milošević">
-        <div class="contact-card-text">
-          <h3>Ivona Milošević</h3>
-          <p>Telefon: <a href="tel:+381652092418">065 / 2092-418</a></p>
-          <p>E-mail: <a href="mailto:ivonam306@gmail.com">ivonam306@gmail.com</a></p>
-          <p>Instagram: <a href="https://www.instagram.com/ivonamilosevicc/" target="_blank">@ivonamilosevicc</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  
-
-  <!-- ================= FOOTER ================= -->
   <footer class="footer">
     <div class="footer-top">
       <h2>Dizajnirajte sa nama</h2>
-      <p>Pridružite se našoj kreativnoj zajednici i unapredite svoj brend.</p>
+      <p>Pridružite se kreativnoj zajednici i unapredite svoj brend uz profesionalnu podršku.</p>
     </div>
-
     <div class="footer-menu">
       <ul>
-        <li><a href="#first-hero">Početna</a></li>
+        <li><a href="#intro">Početna</a></li>
+        <li><a href="#services">Usluge</a></li>
+        <li><a href="#work">Moji projekti</a></li>
+        <li><a href="#process">Način rada</a></li>
         <li><a href="#about">O meni</a></li>
-        <li><a href="#home">Trivia</a></li>
-        <li><a href="#works">Moji radovi</a></li>
+        <li><a href="#reviews">Recenzije</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#studio">Dizajn Studio</a></li>
-        <li><a href="#services">Moje usluge</a></li>
         <li><a href="#contact">Kontakt</a></li>
       </ul>
     </div>
-
     <div class="footer-social">
-      <a href="https://www.instagram.com/dizajnstudio.rs/" target="_blank" aria-label="Instagram"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://www.instagram.com/dizajnstudio.rs/" target="_blank" aria-label="Instagram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17" cy="7" r="1.2"></circle>
+        </svg>
+      </a>
       <a href="https://www.tiktok.com/@dizajn.studio" target="_blank" aria-label="TikTok"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg></a>
-      <a href="tel:+381628371384" aria-label="Phone"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
-      <a href="mailto:dizajnstudio6@gmail.com" aria-label="Gmail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-      </div>
-
-    <div class="footer-bottom">
-      <p>Created by <a href="#first-hero" style="color: #000; text-decoration: none;"><span style="color: #fff;">Dizajn Studio</span></a> © 2025 | all rights reserved</p>
-      <!-- Scroll to top dugme -->
-      <button id="scrollTop" onclick="scrollToTop()">↑</button>
+      <a href="tel:+381628371384" aria-label="Telefon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+      <a href="mailto:dizajnstudio6@gmail.com" aria-label="E-mail"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
     </div>
-  </footer> 
+    <div class="footer-bottom">
+      <p>© 2025 Ivona Milošević · <a href="https://dizajnstudiors.com" target="_blank" rel="noopener" style="text-decoration: underline;">Dizajn Studio</a> · Sva prava zadržana</p>
+      <button type="button" id="toTop" aria-label="Nazad na vrh">↑</button>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
