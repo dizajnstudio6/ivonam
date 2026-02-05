@@ -56,24 +56,19 @@ document.querySelectorAll(".studio-card:not(.studio-link)").forEach(card => {
   });
 });
 
-// CV download — proba oba puta (images + root) za svaki slučaj
-document.querySelectorAll('.about-cv[data-fallback]').forEach(btn => {
+// CV download — samo jedna putanja, bez duplog preuzimanja
+document.querySelectorAll('.about-cv').forEach(btn => {
   btn.addEventListener('click', function (e) {
-    const primary = this.getAttribute('href');
-    const fallback = this.getAttribute('data-fallback');
-    if (!primary) return;
+    const href = this.getAttribute('href');
+    if (!href) return;
     e.preventDefault();
-    const dl = (url) => {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = url.split('/').pop() || 'cv.pdf';
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    };
-    dl(primary);
-    if (fallback) setTimeout(() => dl(fallback), 150);
+    const a = document.createElement('a');
+    a.href = href;
+    a.download = href.split('/').pop() || 'cv.pdf';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   });
 });
 
