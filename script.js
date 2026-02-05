@@ -44,6 +44,18 @@ if (studioTrack && studioPrev && studioNext) {
   });
 }
 
+// Design Studio — klik prikazuje tekst (umesto hover na touch do 400px), strelice za navigaciju
+document.querySelectorAll(".studio-card:not(.studio-link)").forEach(card => {
+  card.addEventListener("click", function (e) {
+    if (window.matchMedia("(max-width: 400px)").matches) {
+      e.preventDefault();
+      const wasActive = this.classList.contains("active");
+      document.querySelectorAll(".studio-card.active").forEach(c => c.classList.remove("active"));
+      if (!wasActive) this.classList.add("active");
+    }
+  });
+});
+
 // CV download — proba oba puta (images + root) za svaki slučaj
 document.querySelectorAll('.about-cv[data-fallback]').forEach(btn => {
   btn.addEventListener('click', function (e) {
